@@ -17,3 +17,11 @@ main .container {
 .section {
     flex: 1;
 }
+
+.gallery-container a img {
+    max-height: 150px;
+}
+
+.navbar-brand img {
+    max-height: 40px;
+}
