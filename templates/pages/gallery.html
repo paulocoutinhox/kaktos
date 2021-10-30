@@ -41,7 +41,7 @@
 
       <br />
 
-      <div class="row" uk-grid uk-lightbox="animation: slide">
+      <div class="row gallery-container" uk-grid uk-lightbox="animation: slide">
         {% for gallery in file.find_dirs_simple(path.join("files", "images", "gallery"), "*") %}
 
         {% for image in file.find_files_simple(gallery, ["*.jpg", "*.png"]) %}
@@ -50,7 +50,7 @@
           <a href="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
             class="gallery-image">
             <img src="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
-              class="rounded mb-4" style="max-height: 150px;">
+              class="rounded mb-4">
           </a>
         </div>
 
