@@ -26,7 +26,7 @@ https://kaktos.netlify.app/
 
 ## Requirements
 
-- Python 3.7+
+- Python 3.6+
 
 ## Setup
 
@@ -86,6 +86,7 @@ All files will be generated in `build` folder.
 - `templates/pages` = folder for pages that will be generated
 - `templates/shared` = folder for parts of layouts that can be shared with other layouts
 - `modules` = kaktos modules
+- `modules/config.py` = configuration file
 - `files` = folder that contains all assets and custom files
 
 ## Templates
