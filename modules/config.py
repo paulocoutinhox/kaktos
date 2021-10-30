@@ -10,6 +10,8 @@ rtl = False
 
 base_url = "https://kaktos.netlify.app"
 
+page_keywords = "python, html, javascript, css, seo, site, static, generator, jamstack"
+
 page_og_locale = "en_US"
 page_og_type = "website"
 page_og_site_name = title

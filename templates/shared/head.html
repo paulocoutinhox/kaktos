@@ -25,6 +25,10 @@
 {% endif -%}
 {% endif -%}
 
+{%- if not page_keywords %}
+{%- set page_keywords = kaktos.config.page_keywords -%}
+{% endif -%}
+
 {%- if not page_url %}
 {%- set page_url = url_for(request.endpoint, _external=True, **request.view_args) -%}
 {% endif -%}
@@ -69,6 +73,10 @@
 
 {%- if page_description %}
 <meta name="description" content="{{ page_description }}">
+{% endif -%}
+
+{%- if page_keywords %}
+<meta name="keywords" content="{{ page_keywords }}">
 {% endif -%}
 
 {%- if page_og_locale %}
