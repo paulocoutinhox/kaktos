@@ -1,0 +1,51 @@
+{% extends "layouts/base.html" %}
+
+{% set page_title = "About" %}
+{% set page_description = "About kaktos page description" %}
+
+{% block content %}
+
+<main>
+  <div class="container">
+
+    <div class="text-center">
+      <br />
+      <br />
+      <br />
+
+      <figure>
+        <img width="180" src="/assets/images/logo.png" alt="Kaktos Logo">
+      </figure>
+
+      <br />
+      <br />
+      <br />
+
+      <h1>About Kaktos</h1>
+
+      <br />
+
+      <p>
+        Kaktos is a python static site generator.
+      </p>
+      <p>
+        The idea is create a simple static site generator for people that don't need server-side languages and server.
+      </p>
+      <p>
+        Designers can use it too, since it don't need people that know a programming language.
+      </p>
+
+      <br />
+      <br />
+
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/paulo-coutinho/kaktos">
+          Learn more
+        </a>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

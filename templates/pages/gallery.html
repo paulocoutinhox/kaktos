@@ -1,0 +1,74 @@
+{% extends "layouts/base.html" %}
+
+{% set page_title = "Gallery" %}
+{% set page_description = "Gallery kaktos page description" %}
+
+{% block footer %}
+<link rel="stylesheet" href="/assets/vendor/magnific-popup/css/magnific-popup.css" type="text/css" />
+<script src="/assets/vendor/magnific-popup/js/magnific-popup.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('.gallery-image').magnificPopup({
+      type: 'image',
+      gallery: {
+        enabled: true
+      },
+    });
+  });
+</script>
+{% endblock %}
+
+{% block content %}
+
+<main>
+  <div class="container">
+
+    <div class="text-center">
+      <br />
+      <br />
+      <br />
+
+      <figure>
+        <img width="180" src="/assets/images/logo.png" alt="Kaktos Logo">
+      </figure>
+
+      <br />
+      <br />
+      <br />
+
+      <h1>Gallery</h1>
+
+      <br />
+
+      <div class="row" uk-grid uk-lightbox="animation: slide">
+        {% for gallery in file.find_dirs_simple(path.join("files", "images", "gallery"), "*") %}
+
+        {% for image in file.find_files_simple(gallery, ["*.jpg", "*.png"]) %}
+
+        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
+          <a href="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
+            class="gallery-image">
+            <img src="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
+              class="rounded mb-4" style="max-height: 150px;">
+          </a>
+        </div>
+
+        {% endfor %}
+
+        {% else %}
+
+        <strong>No gallery</strong>
+
+        {% endfor %}
+      </div>
+
+      <br />
+      <br />
+
+    </div>
+
+  </div>
+</main>
+
+{% endblock %}

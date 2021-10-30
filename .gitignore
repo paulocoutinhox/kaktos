@@ -1,0 +1,12 @@
+*.pyc
+.DS_Store
+node_modules/
+build/
+.idea/
+venv
+.env
+*.iml
+Thumb.sdb
+.vscode
+__pycache__
+*.lock

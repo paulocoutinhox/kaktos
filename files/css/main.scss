@@ -1,0 +1,19 @@
+footer a {
+    color: #11967D;
+    text-decoration: none;
+}
+
+body.main {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main .container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.section {
+    flex: 1;
+}

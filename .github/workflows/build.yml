@@ -1,0 +1,37 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+    name: ${{ matrix.config.name }} - Python ${{ matrix.python-version }}
+    runs-on: ${{ matrix.config.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        config:
+          - { name: "Linux", os: ubuntu-latest }
+        python-version: ["3.6", "3.7", "3.8", "3.9", "3.10"]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v1
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Upgrade PIP
+        run: python -m pip install --upgrade pip setuptools wheel
+
+      - name: Display Python version
+        run: python --version
+
+      - name: Display PIP version
+        run: pip --version
+
+      - name: Install python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build
+        run: python kaktos.py build
