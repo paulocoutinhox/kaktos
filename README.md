@@ -30,7 +30,7 @@ https://kaktos.netlify.app/
 
 ## Setup
 
-1 - Install python dependencies:
+Install python dependencies:
 
 ```bash
 pip3 install -r requirements.txt
@@ -42,37 +42,33 @@ or
 python3 -m pip install -r requirements.txt
 ```
 
-2 - Start kaktos
+## Development
+
+To work in development mode, you only need execute one command:
 
 ```bash
 python3 kaktos.py
 ```
 
-If you want run in debug mode, create an environment variable `KAKTOS_DEBUG=True` and start kaktos. Example:
-
-```
-export KAKTOS_DEBUG=True
-```
-
-## Development
-
-To work in development mode, you only need execute one command:
-
-```
-python3 kaktos.py
-```
-
 When you change any file locally, the server will `process` it again and `auto-refresh` on browser.
+
+This command *always force* use development mode, with or without environment variable.
 
 ## Production
 
 To generate production files, you only need execute one command:
 
-```
+```bash
 python3 kaktos.py build
 ```
 
 All files will be generated in `build` folder.
+
+If you set environment variable `KAKTOS_DEBUG=True`, kaktos will build all files for development mode, example:
+
+```bash
+KAKTOS_DEBUG=True python3 kaktos.py build
+```
 
 ## Deploy
 
