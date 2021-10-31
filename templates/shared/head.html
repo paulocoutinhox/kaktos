@@ -17,6 +17,10 @@
 {%- set page_keywords = kaktos.config.page_keywords -%}
 {% endif -%}
 
+{%- if not page_author %}
+{%- set page_author = kaktos.config.page_author -%}
+{% endif -%}
+
 {%- if not page_url %}
 {%- set page_url = url_for(request.endpoint, _external=True, **request.view_args) -%}
 {% endif -%}
@@ -79,6 +83,10 @@
 
 {%- if page_keywords %}
 <meta name="keywords" content="{{ page_keywords }}">
+{% endif -%}
+
+{%- if page_author %}
+<meta name="author" content="{{ page_author }}">
 {% endif -%}
 
 {%- if page_og_locale %}
