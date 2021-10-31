@@ -48,17 +48,11 @@ python3 -m pip install -r requirements.txt
 python3 kaktos.py
 ```
 
-If you want force run in development mode, create an environment variable `KAKTOS_DEBUG=True` and start kaktos. Example:
-
-```
-export KAKTOS_DEBUG=True
-```
-
 ## Development
 
 To work in development mode, you only need execute one command:
 
-```
+```bash
 python3 kaktos.py
 ```
 
@@ -70,13 +64,17 @@ This command *always force* use development mode, with or without environment va
 
 To generate production files, you only need execute one command:
 
-```
+```bash
 python3 kaktos.py build
 ```
 
 All files will be generated in `build` folder.
 
-If you set environment variable `KAKTOS_DEBUG=True`, kaktos will build all files for development mode.
+If you set environment variable `KAKTOS_DEBUG=True`, kaktos will build all files for development mode, example:
+
+```bash
+KAKTOS_DEBUG=True python3 kaktos.py build
+```
 
 ## Deploy
 
