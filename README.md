@@ -30,7 +30,7 @@ https://kaktos.netlify.app/
 
 ## Setup
 
-1 - Install python dependencies:
+Install python dependencies:
 
 ```bash
 pip3 install -r requirements.txt
@@ -40,12 +40,6 @@ or
 
 ```bash
 python3 -m pip install -r requirements.txt
-```
-
-2 - Start kaktos in development mode:
-
-```bash
-python3 kaktos.py
 ```
 
 ## Development
