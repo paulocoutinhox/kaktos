@@ -171,18 +171,21 @@
 
 <title>{{ page_title }}</title>
 
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
 {%- if page_rtl or kaktos.config.rtl %}
 <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.rtl.min.css" type="text/css" />
 {% else %}
 <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
 {% endif -%}
 
-<link rel="stylesheet" href="/assets/css/main.css?v={{ kaktos.config.version_css_file }}" type="text/css" />
+<link rel="stylesheet"
+  href="/assets/css/main.css{% if not kaktos.is_debug %}?v={{ kaktos.config.version_css_file }}{% endif %}"
+  type="text/css" />
 
 <script src="/assets/vendor/jquery/js/jquery.min.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">

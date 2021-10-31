@@ -8,6 +8,6 @@
 </footer>
 
 <!-- others files -->
-<script src="/assets/js/main.js?v={{ kaktos.config.version_js_file }}"></script>
+<script src="/assets/js/main.js{% if not kaktos.is_debug %}?v={{ kaktos.config.version_js_file }}{% endif %}"></script>
 
 {% include 'shared/google-analytics.html' %}

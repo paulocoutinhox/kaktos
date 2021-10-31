@@ -16,3 +16,9 @@ def index(path=None):
 def page(path=None):
     kaktos = system.get_kaktos(path)
     return render_template(f"pages/{path}.html", kaktos=kaktos)
+
+
+# -----------------------------------------------------------------------------
+@flask_app.before_request
+def before_request():
+    pass

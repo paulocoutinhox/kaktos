@@ -11,10 +11,17 @@ from modules import assets, config, file, path
 
 flask_app = None
 freezer_app = None
+force_debug = False
+
 
 # -----------------------------------------------------------------------------
 def is_debug():
-    return os.getenv("KAKTOS_DEBUG")
+    global force_debug
+
+    if os.getenv("KAKTOS_DEBUG", False):
+        return True
+    else:
+        return force_debug
 
 
 # -----------------------------------------------------------------------------
@@ -24,7 +31,7 @@ def get_kaktos(path):
 
     kc = KaktosConfig()
 
-    kc.debug = is_debug()
+    kc.is_debug = is_debug()
     kc.config = reload(config)
     kc.path = path
 
@@ -37,6 +44,11 @@ def setup():
     load_dotenv(find_dotenv())
 
     # root
+    if is_debug():
+        print(f"environment mode: development")
+    else:
+        print(f"environment mode: production")
+
     print(f"root dir: {config.root_dir}")
     print(f"build dir: {config.build_dir}")
     print(f"template dir: {config.template_dir}")
@@ -54,7 +66,8 @@ def setup():
 
     flask_app.jinja_env.globals.update(file=file)
     flask_app.jinja_env.globals.update(path=path)
-    flask_app.jinja_env.globals.update(is_debug=is_debug)
+    flask_app.jinja_env.globals.update(is_debug=is_debug())
+    flask_app.jinja_env.auto_reload = is_debug()
 
     # load freezer
     global freezer_app
@@ -93,6 +106,8 @@ def start_live_reload():
 
 # -----------------------------------------------------------------------------
 def process_command():
+    global force_debug
+
     command_name = ""
 
     if len(sys.argv) > 1:
@@ -101,10 +116,27 @@ def process_command():
     command_params = {}
 
     if command_name == "build":
+        # build command
         from modules.commands.build import run
+
+        force_debug = False
+        initialize()
 
         run(command_params)
     else:
+        # default command
         from modules.commands.default import run
 
+        force_debug = True
+        initialize()
+
         run(command_params)
+
+
+# -----------------------------------------------------------------------------
+def initialize():
+    # setup
+    setup()
+
+    # routes
+    from modules.routes import before_request, index, page
