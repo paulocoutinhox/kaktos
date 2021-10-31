@@ -106,8 +106,6 @@ def start_live_reload():
 
 # -----------------------------------------------------------------------------
 def process_command():
-    global force_debug
-
     command_name = ""
 
     if len(sys.argv) > 1:
@@ -119,16 +117,10 @@ def process_command():
         # build command
         from modules.commands.build import run
 
-        force_debug = False
-        initialize()
-
         run(command_params)
     else:
         # default command
         from modules.commands.default import run
-
-        force_debug = True
-        initialize()
 
         run(command_params)
 
