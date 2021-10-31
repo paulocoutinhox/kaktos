@@ -21,54 +21,47 @@
 
 {% block content %}
 
-<main>
-  <div class="container">
+{% from 'shared/macros.html' import page_container_start, page_container_end %}
 
-    <div class="text-center">
-      <br />
-      <br />
-      <br />
+{{ page_container_start() }}
 
-      <figure>
-        <img width="180" src="/assets/images/logo.png" alt="Kaktos Logo">
-      </figure>
+<center>
+  <figure>
+    <img width="180" src="/assets/images/logo.png" alt="Logo">
+  </figure>
+</center>
 
-      <br />
-      <br />
-      <br />
+<br />
+<br />
+<br />
 
-      <h1>Gallery</h1>
+<h1>Gallery</h1>
 
-      <br />
+<br />
 
-      <div class="row gallery-container" uk-grid uk-lightbox="animation: slide">
-        {% for gallery in file.find_dirs_simple(path.join("files", "images", "gallery"), "*") %}
+<div class="row gallery-container" uk-grid uk-lightbox="animation: slide">
+  {% for gallery in file.find_dirs_simple(path.join("files", "images", "gallery"), "*") %}
 
-        {% for image in file.find_files_simple(gallery, ["*.jpg", "*.png"]) %}
+  {% for image in file.find_files_simple(gallery, ["*.jpg", "*.png"]) %}
 
-        <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
-          <a href="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
-            class="gallery-image">
-            <img src="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}"
-              class="rounded mb-4">
-          </a>
-        </div>
-
-        {% endfor %}
-
-        {% else %}
-
-        <strong>No gallery</strong>
-
-        {% endfor %}
-      </div>
-
-      <br />
-      <br />
-
-    </div>
-
+  <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
+    <a href="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}" class="gallery-image">
+      <img src="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}" class="rounded mb-4">
+    </a>
   </div>
-</main>
+
+  {% endfor %}
+
+  {% else %}
+
+  <strong>No gallery</strong>
+
+  {% endfor %}
+</div>
+
+<br />
+<br />
+
+{{ page_container_end() }}
 
 {% endblock %}
