@@ -6,9 +6,9 @@ template_dir = os.path.join(root_dir, "templates")
 
 title = "Kaktos"
 rtl = False
-
 base_url = "https://kaktos.netlify.app"
 
+page_description = "Kaktos is a python static site generator"
 page_keywords = "python, html, javascript, css, seo, site, static, generator, jamstack"
 
 page_og_locale = "en_US"

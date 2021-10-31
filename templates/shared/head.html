@@ -3,12 +3,26 @@
 <meta name="viewport"
   content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
-{%- if not page_og_title %}
 {%- if page_title %}
-{%- set page_og_title = page_title + " - " + kaktos.config.title -%}
+{%- set page_title = page_title + " - " + kaktos.config.title -%}
 {% else %}
-{%- set page_og_title = kaktos.config.title -%}
+{%- set page_title = kaktos.config.title -%}
 {% endif -%}
+
+{%- if not page_description %}
+{%- set page_description = kaktos.config.page_description -%}
+{% endif -%}
+
+{%- if not page_keywords %}
+{%- set page_keywords = kaktos.config.page_keywords -%}
+{% endif -%}
+
+{%- if not page_url %}
+{%- set page_url = url_for(request.endpoint, _external=True, **request.view_args) -%}
+{% endif -%}
+
+{%- if not page_og_title %}
+{%- set page_og_title = page_title -%}
 {% endif -%}
 
 {%- if not page_og_locale %}
@@ -20,23 +34,11 @@
 {% endif -%}
 
 {%- if not page_og_description %}
-{%- if page_description %}
 {%- set page_og_description = page_description -%}
-{% endif -%}
-{% endif -%}
-
-{%- if not page_keywords %}
-{%- set page_keywords = kaktos.config.page_keywords -%}
-{% endif -%}
-
-{%- if not page_url %}
-{%- set page_url = url_for(request.endpoint, _external=True, **request.view_args) -%}
 {% endif -%}
 
 {%- if not page_og_url %}
-{%- if page_url %}
 {%- set page_og_url = page_url -%}
-{% endif -%}
 {% endif -%}
 
 {%- if not page_og_site_name %}
@@ -159,13 +161,7 @@
 <link rel="canonical" href="{{ page_url }}" />
 {% endif -%}
 
-<title>
-  {%- if page_title %}
-  {{- page_title }} - {{ kaktos.config.title -}}
-  {% else %}
-  {{- kaktos.config.title -}}
-  {% endif -%}
-</title>
+<title>{{ page_title }}</title>
 
 {%- if page_rtl or kaktos.config.rtl %}
 <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.rtl.min.css" type="text/css" />
