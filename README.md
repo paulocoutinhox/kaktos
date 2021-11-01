@@ -95,9 +95,28 @@ https://jinja.palletsprojects.com/en/3.0.x/
 
 <a href='https://ko-fi.com/paulocoutinho' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
+## Troubleshooting
+
+#### **Python version**
+
+Each service that build the static content automatically use a specific python version.
+
+If you need change the python version used to build all files and pages, edit file `runtime.txt` and change to `3.7`, `3.8`, `3.9` or other.
+
+These services that im using have this python version:
+
+- Netlify: Python 3.8
+- Cloudflare Pages: Python 3.7
+
+#### **Template changed, but not reloaded**
+
+Invalid Jinja2 syntax can prevent your HTML template from being built.
+
+Check your terminal to see the error message, the HTML file and line number when invalid syntax was detected.
+
 ## Images
 
-All images for demo come get from:
+All images for demo i got from:
 
 https://unsplash.com/
 
