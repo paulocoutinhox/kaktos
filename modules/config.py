@@ -1,5 +1,7 @@
 import os
 
+from modules import time
+
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 build_dir = os.path.join(root_dir, "build")
 template_dir = os.path.join(root_dir, "templates")
@@ -26,5 +28,5 @@ page_twitter_site = "@thepsf"
 page_apple_mobile_web_app_title = title
 page_application_name = title
 
-version_js_file = "1"
-version_css_file = "1"
+version_js_file = time.current_time()
+version_css_file = time.current_time()
