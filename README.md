@@ -108,7 +108,7 @@ These services that im using have this python version:
 
 Invalid Jinja2 syntax can prevent your HTML template from being built.
 
-Check your terminal to see the error message, the HTML file and line number when invalid syntax was detected.
+Check your terminal to see the error message, the HTML file and the line number where invalid syntax was detected.
 
 ## Buy me a coffee
 
