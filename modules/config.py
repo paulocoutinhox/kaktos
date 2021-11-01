@@ -11,6 +11,7 @@ base_url = "https://kaktos.netlify.app"
 page_description = "Kaktos is a python static site generator"
 page_keywords = "python, html, javascript, css, seo, site, static, generator, jamstack"
 page_author = "Paulo Coutinho"
+page_language = "en"
 
 page_og_locale = "en_US"
 page_og_type = "website"
