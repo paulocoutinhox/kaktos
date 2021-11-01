@@ -1,5 +1,10 @@
 <!doctype html>
-<html>
+
+{%- if not page_language %}
+{%- set page_language = kaktos.config.page_language -%}
+{% endif %}
+
+<html lang="{{ page_language }}">
 
 <head>
   {% include 'shared/head.html' %}
