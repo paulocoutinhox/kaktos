@@ -15,11 +15,11 @@ def minify_js(code):
     print("minifying js...")
 
     if system.is_debug():
-        result = str(es5(babel_compile(str(code))["code"]))
+        result = str(babel_compile(str(code))["code"])
         print("skip minify")
         return result
     else:
-        result = str(babel_compile(str(code))["code"])
+        result = str(es5(babel_compile(str(code))["code"]))
         print("minified")
         return result
 
