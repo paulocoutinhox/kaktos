@@ -40,9 +40,9 @@
 <br />
 
 <div class="row gallery-container" uk-grid uk-lightbox="animation: slide">
-  {% for gallery in file.find_dirs_simple(path.join("files", "images", "gallery"), "*") %}
+  {% for gallery in file.find_dirs(path.join("files", "images", "gallery"), "*") %}
 
-  {% for image in file.find_files_simple(gallery, ["*.jpg", "*.png"]) %}
+  {% for image in file.find_files(gallery, ["*.jpg", "*.png"]) %}
 
   <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 mb-4 mb-lg-0">
     <a href="/assets/images/gallery/{{ path.basename(gallery) }}/{{ path.basename(image) }}" class="gallery-image">
