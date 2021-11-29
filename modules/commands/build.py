@@ -1,8 +1,10 @@
-from modules import config, file, system
+from pygemstones.io import file
+
+from modules import config, system
 
 
 # -----------------------------------------------------------------------------
-def run(params):
+def run(params = {}):
     system.force_debug = False
 
     system.initialize()

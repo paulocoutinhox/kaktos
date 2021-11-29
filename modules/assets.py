@@ -1,11 +1,10 @@
 import os
 import pathlib
-from glob import glob
-from shutil import copyfile
 
 import sass
 from calmjs.parse import es5
 from dukpy import babel_compile
+from pygemstones.io import file
 
 from modules import system
 
@@ -31,7 +30,7 @@ def build_js():
     if not os.path.exists("build/assets/js"):
         os.makedirs("build/assets/js")
 
-    for js_file in glob("files/js/**/*.js", recursive=True):
+    for js_file in file.find_files("files/js", "*.js", recursive=True):
         with open(js_file, "r") as og:
             js_file_dest = pathlib.Path(js_file)
             js_file_dest = pathlib.Path(*js_file_dest.parts[1:])
@@ -58,7 +57,7 @@ def build_styles():
         dirname=("./files/css", "./build/assets/css"), output_style="compressed"
     )
 
-    for css_file in glob("files/css/**/*.css", recursive=True):
+    for css_file in file.find_files("files/css", "*.css", recursive=True):
         css_file_dest = pathlib.Path(css_file)
         css_file_dest = pathlib.Path(*css_file_dest.parts[1:])
 
@@ -67,7 +66,7 @@ def build_styles():
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
 
-        copyfile(css_file, f"build/assets/{css_file_dest}")
+        file.copy_file(css_file, f"build/assets/{css_file_dest}")
 
     print("done")
 
@@ -79,7 +78,7 @@ def copy_images():
     if not os.path.exists("build/assets/images"):
         os.makedirs("build/assets/images")
 
-    for img_file in glob("files/images/**/*.*", recursive=True):
+    for img_file in file.find_files("files/images", "*.*", recursive=True):
         img_file_dest = pathlib.Path(img_file)
         img_file_dest = pathlib.Path(*img_file_dest.parts[1:])
 
@@ -88,7 +87,7 @@ def copy_images():
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
 
-        copyfile(img_file, f"build/assets/{img_file_dest}")
+        file.copy_file(img_file, f"build/assets/{img_file_dest}")
 
     print("done")
 
@@ -97,7 +96,7 @@ def copy_images():
 def copy_custom():
     print("copying custom...")
 
-    for custom_file in glob("files/custom/**/*", recursive=True):
+    for custom_file in file.find_files("files/custom", "*", recursive=True):
         if not os.path.isfile(custom_file):
             continue
 
@@ -109,6 +108,6 @@ def copy_custom():
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
 
-        copyfile(custom_file, f"build/{custom_file_dest}")
+        file.copy_file(custom_file, f"build/{custom_file_dest}")
 
     print("done")
