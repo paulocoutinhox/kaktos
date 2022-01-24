@@ -22,7 +22,7 @@ Designers can use it too, since it don't need people that know a programming lan
 
 ## Demo
 
-https://kaktos.netlify.app/
+[https://kaktos.netlify.app](https://kaktos.netlify.app)
 
 ## Requirements
 
@@ -72,7 +72,15 @@ KAKTOS_DEBUG=True python3 kaktos.py build
 
 ## Deploy
 
+**Netlify:**
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/paulo-coutinho/kaktos)
+
+
+**Amplify:**
+
+[![amplifybutton](https://oneclick.amplifyapp.com/button.svg)](https://console.aws.amazon.com/amplify/home#/deploy?repo=https://github.com/paulo-coutinho/kaktos)
+
 
 ## Structure
 
