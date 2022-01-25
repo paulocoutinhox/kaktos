@@ -3,7 +3,7 @@ frontend:
   phases:
     preBuild:
       commands:
-        - python3 -m install - requirements.txt
+        - python3 -m pip install - requirements.txt
     build:
       commands:
         - python3 kaktos.py build
