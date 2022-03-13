@@ -28,7 +28,7 @@ Designers can use it too, since it don't need people that know a programming lan
 
 **Amplify:**
 
-[https://main.d1phwmrv89px4x.amplifyapp.com](https://main.d1phwmrv89px4x.amplifyapp.com)
+[https://main.d27ze19drzixy0.amplifyapp.com/](https://main.d27ze19drzixy0.amplifyapp.com/)
 
 ## Requirements
 
