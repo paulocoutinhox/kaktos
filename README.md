@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/paulo-coutinho/kaktos" target="_blank" rel="noopener noreferrer">
+    <a href="https://github.com/paulocoutinhox/kaktos" target="_blank" rel="noopener noreferrer">
         <img width="180" src="extras/images/logo.png" alt="Kaktos Logo">
     </a>
     <br>
@@ -12,7 +12,7 @@
 
 # κάκτος
 
-[![Kaktos](https://github.com/paulo-coutinho/kaktos/actions/workflows/build.yml/badge.svg)](https://github.com/paulo-coutinho/kaktos/actions/workflows/build.yml)
+[![Kaktos](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml/badge.svg)](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml)
 
 Kaktos is a python static site generator.
 
@@ -80,7 +80,7 @@ KAKTOS_DEBUG=True python3 kaktos.py build
 
 **Netlify:**
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/paulo-coutinho/kaktos)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/paulocoutinhox/kaktos)
 
 ## Structure
 
@@ -132,4 +132,4 @@ https://unsplash.com/
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2021, Paulo Coutinho
+Copyright (c) 2021-2022, Paulo Coutinho
