@@ -39,12 +39,6 @@ Designers can use it too, since it don't need people that know a programming lan
 Install python dependencies:
 
 ```bash
-pip3 install -r requirements.txt
-```
-
-or
-
-```bash
 python3 -m pip install -r requirements.txt
 ```
 
