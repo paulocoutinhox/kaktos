@@ -34,7 +34,7 @@ def get_kaktos(path):
 
     kc.is_debug = is_debug()
     kc.config = reload(config)
-    kc.path = os.path
+    kc.path = path
 
     return kc
 
