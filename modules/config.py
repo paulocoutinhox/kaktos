@@ -23,7 +23,7 @@ page_og_image_width = "1024"
 page_og_image_height = "1024"
 
 page_twitter_card = "summary_large_image"
-page_twitter_site = "@thepsf"
+page_twitter_site = "@paulocoutinhox"
 
 page_apple_mobile_web_app_title = title
 page_application_name = title
