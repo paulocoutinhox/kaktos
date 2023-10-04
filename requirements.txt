@@ -1,5 +1,5 @@
 libsass
-flask
+flask<3.0.0
 frozen-flask
 livereload
 calmjs.parse
