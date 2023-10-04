@@ -6,3 +6,4 @@ calmjs.parse
 python-dotenv
 dukpy
 pygemstones
+werkzeug<3.0.0
