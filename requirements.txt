@@ -1,8 +1,9 @@
 libsass
-flask
+flask<3.0.0
 frozen-flask
 livereload
 calmjs.parse
 python-dotenv
 dukpy
 pygemstones
+werkzeug<3.0.0

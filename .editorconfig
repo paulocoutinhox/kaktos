@@ -1,40 +1,40 @@
-# http://editorconfig.org
 root = true
 
 [*]
-indent_size = 4
-indent_style = space
 end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
 insert_final_newline = true
-
-# YAML
-[*.{yml,md}]
 indent_style = space
-indent_size = 2
+indent_size = 4
+trim_trailing_whitespace = true
 
-# HTML
 [*.html]
 indent_size = 2
 
-# Json
 [*.json]
 indent_size = 2
 insert_final_newline = false
 
-# Makefile
-[{Makefile,**.mk}]
+[{*[Mm]akefile*,*.mak,*.mk,depend}]
 indent_style = tab
 
-# Python
-[*.py]
-max_line_length = 119
+[*.{bat, cmd, cmd.*}]
+end_of_line = crlf
 
-# Batch
-[*.bat]
-indent_style = tab
-
-# TOML
-[*.toml]
+[*.{yml, yaml}]
 indent_size = 2
+
+[*.gemspec]
+indent_size = 2
+
+[*.rb,Fastfile,Gemfile,Brewfile,Podfile]
+indent_size = 2
+
+[*.{kt,kts}]
+ktlint_standard_argument-list-wrapping = disabled
+ktlint_standard_trailing-comma-on-call-site = disabled
+ktlint_standard_trailing-comma-on-declaration-site = disabled
+
+[*.dart]
+indent_size = 2
+indent_brace_style = K&R
