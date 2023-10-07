@@ -30,6 +30,10 @@ Designers can use it too, since it don't need people that know a programming lan
 
 [https://main.d27ze19drzixy0.amplifyapp.com/](https://main.d27ze19drzixy0.amplifyapp.com/)
 
+**Cloudflare:**
+
+[https://kaktos.pages.dev/](https://kaktos.pages.dev/)
+
 ## Requirements
 
 - Python 3.6+
