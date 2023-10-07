@@ -22,6 +22,10 @@ Designers can use it too, since it don't need people that know a programming lan
 
 ## Demo
 
+**Cloudflare:**
+
+[https://kaktos.pages.dev](https://kaktos.pages.dev)
+
 **Netlify:**
 
 [https://kaktos.netlify.app](https://kaktos.netlify.app)
@@ -29,10 +33,6 @@ Designers can use it too, since it don't need people that know a programming lan
 **Amplify:**
 
 [https://main.d27ze19drzixy0.amplifyapp.com](https://main.d27ze19drzixy0.amplifyapp.com)
-
-**Cloudflare:**
-
-[https://kaktos.pages.dev](https://kaktos.pages.dev)
 
 ## Requirements
 
