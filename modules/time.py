@@ -7,5 +7,5 @@ def current_time():
 
 
 # -----------------------------------------------------------------------------
-def current_milli_time():
+def current_time_ms():
     return round(time.time() * 1000)
