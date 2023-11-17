@@ -130,4 +130,4 @@ https://unsplash.com/
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2021-2022, Paulo Coutinho
+Copyright (c) 2021-2023, Paulo Coutinho
