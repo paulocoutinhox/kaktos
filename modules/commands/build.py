@@ -4,7 +4,7 @@ from modules import config, system
 
 
 # -----------------------------------------------------------------------------
-def run(params = {}):
+def run(params={}):
     system.force_debug = False
 
     system.initialize()
