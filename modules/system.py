@@ -8,7 +8,7 @@ from flask_frozen import Freezer
 from livereload import Server
 from pygemstones.io import file
 
-from modules import assets, config
+from modules import assets, config, time
 
 flask_app = None
 freezer_app = None
@@ -66,6 +66,7 @@ def setup():
     flask_app.config["FREEZER_DESTINATION"] = config.build_dir
 
     flask_app.jinja_env.globals.update(file=file)
+    flask_app.jinja_env.globals.update(time=time)
     flask_app.jinja_env.globals.update(path=os.path)
     flask_app.jinja_env.globals.update(is_debug=is_debug())
     flask_app.jinja_env.auto_reload = is_debug()
