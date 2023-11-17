@@ -36,7 +36,7 @@ Designers can use it too, since it don't need people that know a programming lan
 
 ## Requirements
 
-- Python 3.6+
+- Python 3.8+
 
 ## Setup
 
