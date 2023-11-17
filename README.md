@@ -108,7 +108,7 @@ If you need change the python version used to build all files and pages, edit fi
 These services that im using have this python version:
 
 - Netlify: Python 3.8
-- Cloudflare Pages: Python 3.7
+- Cloudflare Pages: Python 3.8
 
 #### **• Template changed, but not reloaded**
 
