@@ -2,7 +2,7 @@ from modules import system
 
 
 # -----------------------------------------------------------------------------
-def run(params = {}):
+def run(params={}):
     system.force_debug = True
 
     system.initialize()
