@@ -4,6 +4,6 @@ frozen-flask>=1.0.1
 livereload
 calmjs.parse
 python-dotenv
-dukpy
+git+https://github.com/amol-/dukpy.git@cesu8
 pygemstones
 werkzeug>=3.0.0
