@@ -4,7 +4,11 @@
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 
 {%- if page_title %}
-{%- set page_title = page_title + " - " + kaktos.config.title -%}
+    {%- if page_title_simple %}
+    {%- set page_title = page_title -%}
+    {% else %}
+    {%- set page_title = page_title + " - " + kaktos.config.title -%}
+    {% endif -%}
 {% else %}
 {%- set page_title = kaktos.config.title -%}
 {% endif -%}

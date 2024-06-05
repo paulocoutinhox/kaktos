@@ -3,6 +3,8 @@ frontend:
   phases:
     preBuild:
       commands:
+        - ln -fs /usr/local/bin/pip3.8 /usr/bin/pip3
+        - ln -fs /usr/local/bin/python3.8 /usr/bin/python3
         - python3 -m pip install -r requirements.txt --user
     build:
       commands:

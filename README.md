@@ -111,8 +111,8 @@ If you need change the python version used to build all files and pages, edit fi
 
 These services that im using have this python version:
 
-- Netlify: Python 3.8
-- Cloudflare Pages: Python 3.7
+- Netlify: Python 3.8 (https://docs.netlify.com/configure-builds/available-software-at-build-time/)
+- Cloudflare Pages: Python 3.11.5 (https://developers.cloudflare.com/pages/configuration/language-support-and-tools)
 
 #### **• Template changed, but not reloaded**
 
@@ -134,4 +134,4 @@ https://unsplash.com/
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2021-2023, Paulo Coutinho
+Copyright (c) 2021-2024, Paulo Coutinho
