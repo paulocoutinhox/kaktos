@@ -4,7 +4,7 @@
     </a>
     <br>
     <br>
-    Python static site generator
+    Python Static Site Generator
     <br>
 </p>
 
@@ -14,7 +14,7 @@
 
 [![Kaktos](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml/badge.svg)](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml)
 
-Kaktos is a python static site generator.
+Kaktos is a Python Static Site Generator.
 
 The idea is create a simple static site generator for people that don't need server-side languages.
 
