@@ -6,7 +6,7 @@ from modules.system import flask_app
 
 # -----------------------------------------------------------------------------
 @flask_app.route("/")
-def index(path=None):
+def index():
     kaktos = system.get_kaktos("index")
     return render_template(f"pages/index.html", kaktos=kaktos)
 
