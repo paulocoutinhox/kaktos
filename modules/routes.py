@@ -19,6 +19,20 @@ def page(path=None):
 
 
 # -----------------------------------------------------------------------------
+@flask_app.route("/category/<string:token>/")
+def category(token):
+    kaktos = system.get_kaktos("category")
+    return render_template(f"pages/category.html", kaktos=kaktos, token=token)
+
+
+# -----------------------------------------------------------------------------
+@flask_app.route("/product/<string:token>/")
+def product(token):
+    kaktos = system.get_kaktos("product")
+    return render_template(f"pages/product.html", kaktos=kaktos, token=token)
+
+
+# -----------------------------------------------------------------------------
 @flask_app.before_request
 def before_request():
     pass

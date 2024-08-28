@@ -1,27 +1,11 @@
-footer a {
-    color: #11967D;
-    text-decoration: none;
-}
+// custom variables
+$primary: #188D77;
 
-body.main {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-}
+// import bootstrap and bootswatch
+@import "../custom/assets/vendor/bootstrap/css/variables";
+@import "../custom/assets/vendor/bootstrap/css/bootstrap";
+@import "../custom/assets/vendor/bootstrap/css/bootswatch";
+@import "../custom/assets/vendor/bootstrap-icons/bootstrap-icons.min";
 
-main .container {
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.section {
-    flex: 1;
-}
-
-.gallery-container a img {
-    max-height: 150px;
-}
-
-.navbar-brand img {
-    max-height: 40px;
-}
+// custom
+@import "custom";

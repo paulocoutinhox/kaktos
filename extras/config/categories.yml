@@ -1,0 +1,17 @@
+- name: "Category 1"
+  token: category-1
+  products:
+    - "product-1"
+    - "product-2"
+  seo_title: "Category 1 Title"
+  seo_desc: "Category 1 Description"
+  seo_keywords: "keyword 1, keyword 2"
+
+- name: "Category 2"
+  token: category-2
+  products:
+    - "product-3"
+    - "product-4"
+  seo_title: "Category 2 Title"
+  seo_desc: "Category 2 Description"
+  seo_keywords: "keyword 3, keyword 4"

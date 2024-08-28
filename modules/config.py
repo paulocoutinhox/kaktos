@@ -1,7 +1,11 @@
+import glob
 import os
+
+import yaml
 
 from modules import time
 
+# general
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 build_dir = os.path.join(root_dir, "build")
 template_dir = os.path.join(root_dir, "templates")
@@ -30,3 +34,20 @@ page_application_name = title
 
 version_js_file = time.current_time()
 version_css_file = time.current_time()
+
+# store data
+store_data = {
+    "categories": [],
+    "products": [],
+}
+
+# load categories
+with open("extras/config/categories.yml", "r") as file:
+    store_data["categories"] = yaml.safe_load(file)
+
+# load products
+product_files = glob.glob("extras/config/products/**/*.yml")
+for product_file in product_files:
+    with open(product_file, "r") as file:
+        product_data = yaml.safe_load(file)
+        store_data["products"].append(product_data)

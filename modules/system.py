@@ -1,3 +1,4 @@
+import importlib
 import os
 import sys
 from importlib import reload
@@ -7,8 +8,9 @@ from flask import Flask
 from flask_frozen import Freezer
 from livereload import Server
 from pygemstones.io import file
+from pygemstones.util import log
 
-from modules import assets, config, time
+from modules import assets, category, config, product, time
 
 flask_app = None
 freezer_app = None
@@ -65,6 +67,9 @@ def setup():
     flask_app.config["FREEZER_BASE_URL"] = config.base_url
     flask_app.config["FREEZER_DESTINATION"] = config.build_dir
 
+    flask_app.jinja_env.globals.update(product=product)
+    flask_app.jinja_env.globals.update(category=category)
+
     flask_app.jinja_env.globals.update(file=file)
     flask_app.jinja_env.globals.update(time=time)
     flask_app.jinja_env.globals.update(path=os.path)
@@ -115,16 +120,18 @@ def process_command():
 
     command_params = {}
 
-    if command_name == "build":
-        # build command
-        from modules.commands.build import run
-
-        run(command_params)
-    else:
-        # default command
+    if command_name == "":
+        # use the default command
         from modules.commands.default import run
 
         run(command_params)
+    else:
+        try:
+            # dynamically load the command module
+            command_module = importlib.import_module(f"modules.commands.{command_name}")
+            command_module.run(command_params)
+        except ModuleNotFoundError:
+            log.e(f"Command '{command_name}' not found.")
 
 
 # -----------------------------------------------------------------------------

@@ -1,0 +1,32 @@
+{% extends "layouts/base.html" %}
+
+{% set page_title = "Category" %}
+{% set page_description = "Category kaktos page description" %}
+
+{% block content %}
+
+{% from 'shared/macros.html' import page_container_start, page_container_end %}
+
+{{ page_container_start() }}
+
+<main>
+    <section class="mt-5">
+        <div class="px-4 text-center">
+            <figure>
+                <img width="180" src="/assets/images/logo.png" alt="Logo">
+            </figure>
+        </div>
+
+        <h1 class="display-5 text-center my-5">
+            Store
+        </h1>
+
+        <div class="row">
+            {% include "shared/product/list.html" %}
+        </div>
+    </section>
+</main>
+
+{{ page_container_end() }}
+
+{% endblock %}

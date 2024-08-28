@@ -1,0 +1,37 @@
+{% extends "layouts/base.html" %}
+
+{% set cat = category.by_token(token) %}
+
+{% if cat.seo_title %}
+    {% set page_title = cat.seo_title %}
+{% endif %}
+
+{% if cat.seo_desc %}
+    {% set page_description = cat.seo_desc %}
+{% endif %}
+
+{% if cat.seo_keywords %}
+    {% set page_keywords = cat.seo_keywords %}
+{% endif %}
+
+{% block content %}
+
+<main>
+    <section class="mt-5">
+        <div class="px-4 text-center">
+            <figure>
+                <img width="180" src="/assets/images/logo.png" alt="Logo">
+            </figure>
+        </div>
+
+        <h1 class="display-5 text-center my-5">
+            {{ cat.name }}
+        </h1>
+
+        {% if cat.products %}
+            {% include "shared/product/category.html" %}
+        {% endif %}
+    </section>
+</main>
+
+{% endblock %}
