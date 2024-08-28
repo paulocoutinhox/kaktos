@@ -1,0 +1,92 @@
+{% extends "layouts/base.html" %}
+
+{% set prod = product.by_token(token) %}
+
+{% if prod.seo_title %}
+    {% set page_title = prod.seo_title %}
+{% endif %}
+
+{% if prod.seo_desc %}
+    {% set page_description = prod.seo_desc %}
+{% endif %}
+
+{% if prod.seo_keywords %}
+    {% set page_keywords = prod.seo_keywords %}
+{% endif %}
+
+{% block content %}
+
+<main>
+    <section class="mt-5 section-product-details">
+        <div class="px-4 text-center">
+            <figure>
+                <img width="180" src="/assets/images/logo.png" alt="Logo">
+            </figure>
+        </div>
+
+        <div class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row gx-4 gx-lg-5 align-items-start">
+                    <div class="col-md-6">
+                        <img class="card-img-top mb-5 mb-md-0" src="{{ prod.image }}" alt="..." />
+                    </div>
+                    <div class="col-md-6">
+                        <div class="small mb-1">SKU: {{ prod.token }}</div>
+
+                        <h1 class="display-5 fw-bolder">
+                            {{ prod.name }}
+                        </h1>
+
+                        <div class="fs-5 mb-3 product-price-info">
+                            {% if prod.price_from %}
+                                <span class="text-decoration-line-through">
+                                    {{ prod.price_from }}
+                                </span>
+
+                                <br />
+
+                                {% if prod.installments > 0 %}
+                                    {{ prod.installments }}x of
+                                {% endif %}
+
+                                <span class="product-price">{{ prod.price }}</span>
+                            {% else %}
+                                {% if prod.installments > 0 %}
+                                    {{ prod.installments }}x of
+                                {% endif %}
+
+                                <span class="product-price">{{ prod.price }}</span>
+                            {% endif %}
+                        </div>
+
+                        {% if prod.small_desc %}
+                        <p class="lead">
+                            {{ prod.small_desc }}
+                        </p>
+                        {% endif %}
+
+                        <div class="d-flex">
+                            <a class="btn btn-success flex-shrink-0" href="{{ prod.buy }}">
+                                <i class="bi bi-cart3"></i>
+                                Buy
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {% if prod.desc %}
+                <h3 class="fw-bolder mt-5">Description</h3>
+                <p>
+                    {{ prod.desc | safe }}
+                </p>
+                {% endif %}
+
+                {% if prod.related %}
+                    {% include "shared/product/related.html" %}
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

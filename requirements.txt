@@ -7,3 +7,4 @@ python-dotenv
 dukpy>=0.4.0
 pygemstones
 werkzeug>=3.0.0
+pyyaml

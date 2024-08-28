@@ -1,0 +1,17 @@
+name: "Product 1"
+token: product-1
+image: /assets/images/products/sample.png
+price: "$9,99"
+installments: 3
+buy: https://github.com/sponsors/paulocoutinhox
+desc: |
+  <h2>My product description</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+seo_title: "Product 1 Title"
+seo_desc: "Product 1 Description"
+seo_keywords: "keyword 1, keyword 2"
+related:
+  - "product-2"
+  - "product-3"
+  - "product-4"

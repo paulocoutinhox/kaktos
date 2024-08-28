@@ -78,6 +78,12 @@ If you set environment variable `KAKTOS_DEBUG=True`, kaktos will build all files
 KAKTOS_DEBUG=True python3 kaktos.py build
 ```
 
+If you want start a web server to test files inside `build` folder use:
+
+```bash
+python3 kaktos.py serve
+```
+
 ## Deploy
 
 **Netlify:**
@@ -98,6 +104,13 @@ KAKTOS_DEBUG=True python3 kaktos.py build
 - `modules` = kaktos modules
 - `modules/config.py` = configuration file
 - `files` = folder that contains all assets and custom files
+- `extras/config` = folder that contains some configurations for dynamic sample data
+
+## Commands
+
+Each command supported by **Kaktos** is a Python file located in the `modules/commands/` folder.
+
+To add new commands, simply create a new Python file in the `modules/commands/` folder and implement the `def run(params={})` method within it.
 
 ## Templates
 

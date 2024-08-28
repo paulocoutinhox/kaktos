@@ -16,19 +16,19 @@
 
                 <ul class="navbar-nav ms-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'index' %}active{% endif %}" {% if kaktos.path=='index'
-                            %} aria-current="page" {% endif %} href="{{ url_for('index') }}">Home</a>
+                        <a class="nav-link {% if kaktos.path == 'index' %}active{% endif %}" {% if kaktos.path=='index' %} aria-current="page" {% endif %} href="{{ url_for('index') }}">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'gallery' %}active{% endif %}" {% if
-                            kaktos.path=='gallery' %} aria-current="page" {% endif %}
-                            href="{{ url_for('page', path='gallery') }}">Gallery</a>
+                        <a class="nav-link {% if kaktos.path == 'store' %}active{% endif %}" {% if kaktos.path=='store' %} aria-current="page" {% endif %} href="{{ url_for('page', path='store') }}">Store</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'about' %}active{% endif %}" {% if kaktos.path=='about'
-                            %} aria-current="page" {% endif %} href="{{ url_for('page', path='about') }}">About</a>
+                        <a class="nav-link {% if kaktos.path == 'gallery' %}active{% endif %}" {% if kaktos.path=='gallery' %} aria-current="page" {% endif %} href="{{ url_for('page', path='gallery') }}">Gallery</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link {% if kaktos.path == 'about' %}active{% endif %}" {% if kaktos.path=='about' %} aria-current="page" {% endif %} href="{{ url_for('page', path='about') }}">About</a>
                     </li>
                 </ul>
 
