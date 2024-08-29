@@ -187,9 +187,8 @@
 <link rel="stylesheet" href="/assets/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
 {% endif -%}
 
-<link rel="stylesheet"
-    href="/assets/css/main.css{% if not kaktos.is_debug %}?v={{ kaktos.config.version_css_file }}{% endif %}"
-    type="text/css" />
+<link rel="stylesheet" href="/assets/css/main.css{% if not kaktos.is_debug %}?v={{ kaktos.config.version_css_file }}{% endif %}" type="text/css" />
+<link rel="stylesheet" href="/assets/css/custom.css{% if not kaktos.is_debug %}?v={{ kaktos.config.version_css_file }}{% endif %}" type="text/css" />
 
 <script src="/assets/vendor/jquery/js/jquery.min.js"></script>
 <script src="/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
