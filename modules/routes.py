@@ -1,6 +1,6 @@
 from flask.templating import render_template
 
-from modules import system
+from modules import config, system
 from modules.system import flask_app
 
 
@@ -30,6 +30,30 @@ def category(token):
 def product(token):
     kaktos = system.get_kaktos("product")
     return render_template(f"pages/product.html", kaktos=kaktos, token=token)
+
+
+# -----------------------------------------------------------------------------
+@flask_app.route("/blog/", defaults={"page": 1})
+@flask_app.route("/blog/page/<int:page>/")
+def blog(page):
+    kaktos = system.get_kaktos("blog")
+
+    paginated_data = config.blog_data["posts_pag"]["pages"]
+
+    if page <= len(paginated_data):
+        page_data = paginated_data[page - 1]
+    else:
+        page_data = {
+            "total_items": 0,
+            "total_pages": 0,
+        }
+
+    return render_template(
+        "pages/blog.html",
+        kaktos=kaktos,
+        page_data=page_data,
+        page_num=page,
+    )
 
 
 # -----------------------------------------------------------------------------

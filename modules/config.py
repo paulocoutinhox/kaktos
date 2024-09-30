@@ -3,7 +3,7 @@ import os
 
 import yaml
 
-from modules import time
+from modules import pagination, time
 
 # general
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -51,3 +51,20 @@ for product_file in product_files:
     with open(product_file, "r") as file:
         product_data = yaml.safe_load(file)
         store_data["products"].append(product_data)
+
+# blog data
+blog_data = {
+    "posts": [],
+    "posts_pag": {},
+}
+
+posts_files = glob.glob("extras/config/posts/**/*.yml")
+for post_file in posts_files:
+    with open(post_file, "r") as file:
+        posts_data = yaml.safe_load(file)
+        blog_data["posts"].extend(posts_data)
+
+# pagination
+blog_data["posts_pag"] = pagination.paginate(
+    blog_data["posts"],
+)
