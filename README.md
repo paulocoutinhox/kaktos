@@ -164,7 +164,7 @@ Invalid Jinja2 syntax can prevent your HTML template from being built.
 
 Check your terminal to see the error message, the HTML file and the line number where invalid syntax was detected.
 
-## ☕ Buy me a coffee
+## ☕ Buy me a Coffee
 
 <a href='https://ko-fi.com/paulocoutinho' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
