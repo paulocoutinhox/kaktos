@@ -1,15 +1,15 @@
-{% if page_data.total_pages > 0 %}
+{% if pagination_data.total_pages > 0 %}
 <nav aria-label="Page Navigation" class="mb-5">
     <ul class="pagination justify-content-center">
 
-        {% if page_data.has_previous %}
+        {% if pagination_data.has_previous %}
         <li class="page-item">
             <a class="page-link" href="{{ url_for('blog', page=1) }}" aria-label="«">
                 <span aria-hidden="true">«</span>
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=page_data.previous_page) }}" aria-label="‹">
+            <a class="page-link" href="{{ url_for('blog', page=pagination_data.previous_page) }}" aria-label="‹">
                 <span aria-hidden="true">‹</span>
             </a>
         </li>
@@ -17,18 +17,18 @@
 
         <li class="page-item active" aria-current="page">
             <span class="page-link">
-                Page {{ page_num }} of {{ page_data.total_pages }}
+                Page {{ page_num }} of {{ pagination_data.total_pages }}
             </span>
         </li>
 
-        {% if page_data.has_next %}
+        {% if pagination_data.has_next %}
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=page_data.next_page) }}" aria-label="›">
+            <a class="page-link" href="{{ url_for('blog', page=pagination_data.next_page) }}" aria-label="›">
                 <span aria-hidden="true">›</span>
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=page_data.last_page) }}" aria-label="»">
+            <a class="page-link" href="{{ url_for('blog', page=pagination_data.last_page) }}" aria-label="»">
                 <span aria-hidden="true">»</span>
             </a>
         </li>

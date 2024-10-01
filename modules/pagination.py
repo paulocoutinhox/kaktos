@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-def paginate(items, per_page=10):
+def paginate(items, per_page):
     """
     Paginate a list of items and return all necessary data for static HTML generation.
 

@@ -1,0 +1,29 @@
+{% set blog_post_link = url_for('blog_post', year=time.format_datetime(blog_post.published_at, '%Y'), month=time.format_datetime(blog_post.published_at, '%m'), day=time.format_datetime(blog_post.published_at, '%d'), token=blog_post.token) %}
+
+<div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
+    <div class="card mb-4 h-100 d-flex flex-column">
+        <a href="{{ blog_post_link }}">
+            <img class="card-img-top" src="{{ blog_post.image }}">
+        </a>
+
+        <div class="card-body flex-grow-1">
+            <div class="small text-muted">
+                {{ time.format_datetime(blog_post.published_at, '%Y-%m-%d %H:%M:%S') }}
+            </div>
+            <h2 class="card-title h4">
+                <a href="{{ blog_post_link }}" class="text-decoration-none text-dark">
+                    {{ blog_post.title }}
+                </a>
+            </h2>
+            <p class="card-text">
+                {{ blog_post.content | striptags | truncate(150) }}
+            </p>
+        </div>
+
+        <div class="card-footer text-end mt-auto">
+            <a class="btn btn-primary" href="{{ blog_post_link }}">
+                Read more →
+            </a>
+        </div>
+    </div>
+</div>

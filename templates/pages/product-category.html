@@ -1,6 +1,6 @@
 {% extends "layouts/base.html" %}
 
-{% set cat = category.by_token(token) %}
+{% set cat = product_category.by_token(token) %}
 
 {% if cat.seo_title %}
     {% set page_title = cat.seo_title %}
@@ -29,7 +29,7 @@
         </h1>
 
         {% if cat.products %}
-            {% include "shared/product/category.html" %}
+            {% include "shared/product-category/list.html" %}
         {% endif %}
     </section>
 </main>

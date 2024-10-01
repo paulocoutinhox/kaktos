@@ -11,7 +11,7 @@
         </div>
 
         <h1 class="display-5 text-center my-5">
-            {% if page_data.total_items > 0 %}
+            {% if pagination_data.total_items > 0 %}
                 Blog Page {{ page_num }}
             {% else %}
                 Blog
@@ -20,27 +20,9 @@
     </section>
     <section class="mt-5 section-posts-list">
         <div class="container px-4 px-lg-5 my-5">
-            {% if page_data.total_items > 0 %}
-                <div class="row gx-4 gx-lg-5 align-items-start">
-                    {% for post in page_data["items"] %}
-                    <div class="col-md-6 mb-4">
-                        <div class="card h-100">
-                            <!-- post title -->
-                            <div class="card-body">
-                                <h2>{{ post.title }}</h2>
-                                <div class="mb-3">
-                                    <small class="text-muted">Published on: {{ post.created_at }}</small>
-                                </div>
-                                <!-- post content -->
-                                <p class="lead">{{ post.content | truncate(150) }}</p>
-                            </div>
-
-                            <div class="card-footer text-end">
-                                <a href="/posts/{{ post.token }}" class="btn btn-primary">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+            {% if pagination_data.total_items > 0 %}
+                <div class="row">
+                    {% include "shared/blog/list.html" %}
                 </div>
             {% else %}
                 <div class="text-center">
@@ -48,7 +30,6 @@
                 </div>
             {% endif %}
 
-            <!-- pagination controls -->
             {% include 'shared/pagination.html' %}
         </div>
     </section>

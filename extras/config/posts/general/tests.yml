@@ -1,249 +1,380 @@
-- title: "Post 1"
+- title: "Understanding Python Lists"
   token: post-1
-  content: "Content for post 1"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python lists are one of the most versatile data types in the language. They are mutable, meaning you can change their content after creation. A list can store elements of different data types, including integers, strings, and even other lists.</p>
 
-- title: "Post 2"
+    <p>For example:</p>
+    <pre>
+    <code>my_list = [1, "hello", [3, 4, 5]]</code>
+    </pre>
+
+    <p>You can access list elements using indexing like this:</p>
+    <pre>
+    <code>first_element = my_list[0]</code>
+    </pre>
+
+    <p>Lists also support various methods like <code>append()</code>, <code>remove()</code>, and <code>sort()</code> to manipulate the elements. These methods allow you to modify lists after they are created.</p>
+
+    <h2>List Comprehensions</h2>
+    <p>Python provides a feature called list comprehensions that allows for creating lists in a concise way:</p>
+    <pre>
+    <code>squared_numbers = [x**2 for x in range(10)]</code>
+    </pre>
+
+    <p>List comprehensions offer a more compact and readable way to generate lists, compared to using loops.</p>
+  published_at: "2024-07-15 10:23:45"
+  tags: ["python", "lists", "tutorial"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Introduction to Python Dictionaries"
   token: post-2
-  content: "Content for post 2"
-  created_at: "2024-09-29"
+  content: |
+    <p>A dictionary in Python is an unordered collection of data stored as key-value pairs. Keys must be unique, enquanto valores podem ser duplicados.</p>
 
-- title: "Post 3"
+    <p>For example:</p>
+    <pre>
+    <code>my_dict = {"name": "Alice", "age": 30, "city": "New York"}</code>
+    </pre>
+
+    <p>You can access dictionary values by referencing the key like this:</p>
+    <pre>
+    <code>age = my_dict["age"]</code>
+    </pre>
+
+    <h2>Dictionary Methods</h2>
+    <p>Some useful dictionary methods include:</p>
+    <ul>
+      <li><code>keys()</code></li>
+      <li><code>values()</code></li>
+      <li><code>items()</code></li>
+    </ul>
+    <p>For example, you can iterate over keys and values using:</p>
+    <pre>
+    <code>for key, value in my_dict.items():
+        print(f"{key}: {value}")</code>
+    </pre>
+  published_at: "2024-08-11 14:50:12"
+  tags: ["python", "dictionaries", "data"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Working with Python Functions"
   token: post-3
-  content: "Content for post 3"
-  created_at: "2024-09-29"
+  content: |
+    <p>Functions allow you to encapsulate reusable blocks of code, making your programs more modular and easier to maintain. To define a function in Python, use the <code>def</code> keyword:</p>
 
-- title: "Post 4"
+    <pre>
+    <code>def greet(name):
+        return f"Hello, {name}"</code>
+    </pre>
+
+    <h2>Function Arguments</h2>
+    <p>Python supports positional, keyword, and default arguments. Here's an example of using default arguments:</p>
+
+    <pre>
+    <code>def greet(name, greeting="Hello"):
+        return f"{greeting}, {name}"</code>
+    </pre>
+  published_at: "2024-06-22 09:34:56"
+  tags: ["python", "functions", "code"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "How to Use Python Lambda Functions"
   token: post-4
-  content: "Content for post 4"
-  created_at: "2024-09-29"
+  content: |
+    <p>Lambda functions are small anonymous functions in Python. They are useful when you need a short function for a specific task.</p>
 
-- title: "Post 5"
+    <p>Here is an example of a lambda function that doubles a number:</p>
+    <pre>
+    <code>double = lambda x: x * 2</code>
+    </pre>
+
+    <p>Lambda functions are often used with higher-order functions like <code>map()</code>, <code>filter()</code>, and <code>reduce()</code> for concise operations on data collections.</p>
+  published_at: "2024-05-29 17:42:38"
+  tags: ["python", "lambda", "functions"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Understanding Python's GIL"
   token: post-5
-  content: "Content for post 5"
-  created_at: "2024-09-29"
+  content: |
+    <p>The Global Interpreter Lock (GIL) in Python is a mechanism that prevents multiple native threads from executing Python bytecodes at the same time. This affects multi-threaded applications by limiting them to one thread execution at a time for CPU-bound tasks.</p>
 
-- title: "Post 6"
+    <p>The GIL is essential for memory management but can impact the performance of CPU-bound processes in Python when using threading.</p>
+  published_at: "2024-04-20 12:15:23"
+  tags: ["python", "gil", "threads"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Working with Python's Asyncio"
   token: post-6
-  content: "Content for post 6"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python's <code>asyncio</code> module supports asynchronous programming, allowing you to handle many tasks concurrently.</p>
 
-- title: "Post 7"
+    <p>Here is an example of asynchronous programming in Python:</p>
+    <pre>
+    <code>import asyncio
+
+    async def main():
+        print("Hello")
+        await asyncio.sleep(1)
+        print("World")
+
+    asyncio.run(main())</code>
+    </pre>
+
+    <p>The <code>asyncio</code> module enables asynchronous I/O-bound tasks, improving performance in situations where blocking operations can slow down your program.</p>
+  published_at: "2024-08-03 08:45:11"
+  tags: ["python", "asyncio", "concurrency"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Handling Files in Python"
   token: post-7
-  content: "Content for post 7"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python's built-in <code>open</code> function allows you to read and write files. Here is an example of reading a file:</p>
 
-- title: "Post 8"
+    <pre>
+    <code>with open("example.txt", "r") as file:
+        content = file.read()</code>
+    </pre>
+
+    <p>Using <code>with</code> ensures that the file is properly closed after its contents have been read or written. This is essential for managing resources efficiently in Python.</p>
+  published_at: "2024-03-10 15:00:49"
+  tags: ["python", "files", "io"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Error Handling in Python"
   token: post-8
-  content: "Content for post 8"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python uses try-except blocks for error handling. Here's an example:</p>
 
-- title: "Post 9"
+    <pre>
+    <code>try:
+        result = 10 / 0
+    except ZeroDivisionError:
+        print("You can't divide by zero!")</code>
+    </pre>
+
+    <p>Using exceptions allows you to handle errors gracefully without stopping the entire program, improving robustness and user experience.</p>
+  published_at: "2024-07-19 13:28:57"
+  tags: ["python", "errors", "exceptions"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Python Class and Object Basics"
   token: post-9
-  content: "Content for post 9"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python is an object-oriented language. Here's an example de uma classe simples que representa um cachorro:</p>
 
-- title: "Post 10"
+    <pre>
+    <code>class Dog:
+        def __init__(self, name, breed):
+            self.name = name
+            self.breed = breed
+
+        def bark(self):
+            print(f"{self.name} says woof!")</code>
+    </pre>
+
+    <p>Object-oriented programming in Python allows you to model real-world entities with classes and objects, making your programs more organized and reusable.</p>
+  published_at: "2024-05-09 10:55:43"
+  tags: ["python", "oop", "classes"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Exploring Python Decorators"
   token: post-10
-  content: "Content for post 10"
-  created_at: "2024-09-29"
+  content: |
+    <p>Decorators in Python are a powerful feature that allows you to modify the behavior of functions or methods. Here's an example of a simple decorator:</p>
 
-- title: "Post 11"
+    <pre>
+    <code>def my_decorator(func):
+        def wrapper():
+            print("Before function.")
+            func()
+            print("After function.")
+        return wrapper</code>
+    </pre>
+
+    <p>Decorators wrap a function, adding pre- or post-execution logic while keeping the original function intact, making your code more modular and reusable.</p>
+  published_at: "2024-02-25 09:13:29"
+  tags: ["python", "decorators", "functions"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Python List Comprehensions"
   token: post-11
-  content: "Content for post 11"
-  created_at: "2024-09-29"
+  content: |
+    <p>List comprehensions offer a concise way to create lists in Python. Here's an example:</p>
 
-- title: "Post 12"
+    <pre>
+    <code>squared_numbers = [x**2 for x in range(10)]</code>
+    </pre>
+
+    <p>List comprehensions simplify the process of creating new lists from existing iterables by providing a single-line syntax, making your code mais eficiente e legível.</p>
+  published_at: "2024-06-14 16:21:08"
+  tags: ["python", "comprehensions", "lists"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Introduction to Python Generators"
   token: post-12
-  content: "Content for post 12"
-  created_at: "2024-09-29"
+  content: |
+    <p>Generators are a special class of functions that yield values one at a time, making them memory efficient. Here's an example:</p>
 
-- title: "Post 13"
+    <pre>
+    <code>def generator():
+        for i in range(3):
+            yield i</code>
+    </pre>
+
+    <p>Generators are particularly useful for handling large data streams or sequences without storing the entire sequence in memory.</p>
+  published_at: "2024-01-08 07:22:31"
+  tags: ["python", "generators", "iterators"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Using Python's Datetime Module"
   token: post-13
-  content: "Content for post 13"
-  created_at: "2024-09-29"
+  content: |
+    <p>The <code>datetime</code> module in Python helps you manipulate dates and times effectively. Here's an example of getting the current date and time:</p>
 
-- title: "Post 14"
+    <pre>
+    <code>from datetime import datetime
+    now = datetime.now()</code>
+    </pre>
+
+    <p>With the <code>datetime</code> module, you can parse, format, and calculate date and time values with ease, making it essential for any time-sensitive application.</p>
+  published_at: "2024-04-01 19:32:10"
+  tags: ["python", "datetime", "time"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Mastering Python String Formatting"
   token: post-14
-  content: "Content for post 14"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python offers several ways to format strings, with f-strings being one of the most convenient and modern options. Here's an example:</p>
 
-- title: "Post 15"
+    <pre>
+    <code>name = "Alice"
+    greeting = f"Hello, {name}"</code>
+    </pre>
+
+    <p>String formatting methods like f-strings, <code>format()</code>, and %-formatting allow you to construct dynamic strings with ease and flexibility.</p>
+  published_at: "2024-05-05 10:14:27"
+  tags: ["python", "strings", "formatting"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Introduction to Python's Virtual Environments"
   token: post-15
-  content: "Content for post 15"
-  created_at: "2024-09-29"
+  content: |
+    <p>Virtual environments in Python help manage dependencies for different projects, isolating them from the global Python environment. To create a virtual environment, use the following command:</p>
 
-- title: "Post 16"
+    <pre>
+    <code>python3 -m venv myenv</code>
+    </pre>
+
+    <p>Virtual environments ensure that your projects have the exact dependencies they need, without affecting other projects or the system-wide Python installation.</p>
+  published_at: "2024-03-27 11:12:34"
+  tags: ["python", "virtualenv", "dependencies"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Python's Data Classes Explained"
   token: post-16
-  content: "Content for post 16"
-  created_at: "2024-09-29"
+  content: |
+    <p>Data classes in Python simplify the creation of classes that primarily store data. Here's an example:</p>
 
-- title: "Post 17"
+    <pre>
+    <code>from dataclasses import dataclass
+
+    @dataclass
+    class Point:
+        x: int
+        y: int</code>
+    </pre>
+
+    <p>Data classes automatically generate methods like <code>__init__()</code>, <code>__repr__()</code>, and <code>__eq__()</code>, making your code more concise and readable.</p>
+  published_at: "2024-06-04 18:47:19"
+  tags: ["python", "dataclasses", "oop"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Understanding Python's Logging Module"
   token: post-17
-  content: "Content for post 17"
-  created_at: "2024-09-29"
+  content: |
+    <p>The <code>logging</code> module in Python allows you to track events that occur during program execution, providing a way to output messages for debugging or auditing. Here's an example:</p>
 
-- title: "Post 18"
+    <pre>
+    <code>import logging
+
+    logging.basicConfig(level=logging.INFO)
+    logging.info("This is an info message")</code>
+    </pre>
+
+    <p>Using the logging module is a best practice for writing messages that provide insights into the running state of your application, making debugging and tracking easier.</p>
+  published_at: "2024-09-01 14:00:52"
+  tags: ["python", "logging", "debugging"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Handling JSON in Python"
   token: post-18
-  content: "Content for post 18"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python's <code>json</code> module provides easy methods to encode and decode JSON data, which is widely used for data interchange between systems. Here's an example:</p>
 
-- title: "Post 19"
+    <pre>
+    <code>import json
+
+    data = {"name": "John", "age": 30}
+    json_string = json.dumps(data)</code>
+    </pre>
+
+    <p>Working with JSON is essential when dealing with APIs or storing configuration data in Python, making the <code>json</code> module indispensable for modern development.</p>
+  published_at: "2024-04-18 09:45:11"
+  tags: ["python", "json", "api"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Introduction to Python's Collections Module"
   token: post-19
-  content: "Content for post 19"
-  created_at: "2024-09-29"
+  content: |
+    <p>The <code>collections</code> module offers specialized container data types like <code>namedtuple</code>, <code>deque</code>, and <code>Counter</code>. Here's an example of using a Counter:</p>
 
-- title: "Post 20"
+    <pre>
+    <code>from collections import Counter
+
+    counts = Counter([1, 2, 2, 3])</code>
+    </pre>
+
+    <p>The collections module extends Python's built-in data types, oferecendo mais flexibilidade e funcionalidade para casos de uso específicos, como contagem de elementos ou criação de filas eficientes.</p>
+  published_at: "2024-05-21 08:30:33"
+  tags: ["python", "collections", "data"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg
+
+- title: "Building REST APIs with Python"
   token: post-20
-  content: "Content for post 20"
-  created_at: "2024-09-29"
+  content: |
+    <p>Python frameworks like Flask and Django make building RESTful APIs easy and straightforward. Here's an example of a simple Flask API:</p>
 
-- title: "Post 21"
-  token: post-21
-  content: "Content for post 21"
-  created_at: "2024-09-29"
+    <pre>
+    <code>from flask import Flask
 
-- title: "Post 22"
-  token: post-22
-  content: "Content for post 22"
-  created_at: "2024-09-29"
+    app = Flask(__name__)
 
-- title: "Post 23"
-  token: post-23
-  content: "Content for post 23"
-  created_at: "2024-09-29"
+    @app.route('/api')
+    def api():
+        return {"message": "Hello, API!"}</code>
+    </pre>
 
-- title: "Post 24"
-  token: post-24
-  content: "Content for post 24"
-  created_at: "2024-09-29"
-
-- title: "Post 25"
-  token: post-25
-  content: "Content for post 25"
-  created_at: "2024-09-29"
-
-- title: "Post 26"
-  token: post-26
-  content: "Content for post 26"
-  created_at: "2024-09-29"
-
-- title: "Post 27"
-  token: post-27
-  content: "Content for post 27"
-  created_at: "2024-09-29"
-
-- title: "Post 28"
-  token: post-28
-  content: "Content for post 28"
-  created_at: "2024-09-29"
-
-- title: "Post 29"
-  token: post-29
-  content: "Content for post 29"
-  created_at: "2024-09-29"
-
-- title: "Post 30"
-  token: post-30
-  content: "Content for post 30"
-  created_at: "2024-09-29"
-
-- title: "Post 31"
-  token: post-31
-  content: "Content for post 31"
-  created_at: "2024-09-29"
-
-- title: "Post 32"
-  token: post-32
-  content: "Content for post 32"
-  created_at: "2024-09-29"
-
-- title: "Post 33"
-  token: post-33
-  content: "Content for post 33"
-  created_at: "2024-09-29"
-
-- title: "Post 34"
-  token: post-34
-  content: "Content for post 34"
-  created_at: "2024-09-29"
-
-- title: "Post 35"
-  token: post-35
-  content: "Content for post 35"
-  created_at: "2024-09-29"
-
-- title: "Post 36"
-  token: post-36
-  content: "Content for post 36"
-  created_at: "2024-09-29"
-
-- title: "Post 37"
-  token: post-37
-  content: "Content for post 37"
-  created_at: "2024-09-29"
-
-- title: "Post 38"
-  token: post-38
-  content: "Content for post 38"
-  created_at: "2024-09-29"
-
-- title: "Post 39"
-  token: post-39
-  content: "Content for post 39"
-  created_at: "2024-09-29"
-
-- title: "Post 40"
-  token: post-40
-  content: "Content for post 40"
-  created_at: "2024-09-29"
-
-- title: "Post 41"
-  token: post-41
-  content: "Content for post 41"
-  created_at: "2024-09-29"
-
-- title: "Post 42"
-  token: post-42
-  content: "Content for post 42"
-  created_at: "2024-09-29"
-
-- title: "Post 43"
-  token: post-43
-  content: "Content for post 43"
-  created_at: "2024-09-29"
-
-- title: "Post 44"
-  token: post-44
-  content: "Content for post 44"
-  created_at: "2024-09-29"
-
-- title: "Post 45"
-  token: post-45
-  content: "Content for post 45"
-  created_at: "2024-09-29"
-
-- title: "Post 46"
-  token: post-46
-  content: "Content for post 46"
-  created_at: "2024-09-29"
-
-- title: "Post 47"
-  token: post-47
-  content: "Content for post 47"
-  created_at: "2024-09-29"
-
-- title: "Post 48"
-  token: post-48
-  content: "Content for post 48"
-  created_at: "2024-09-29"
-
-- title: "Post 49"
-  token: post-49
-  content: "Content for post 49"
-  created_at: "2024-09-29"
-
-- title: "Post 50"
-  token: post-50
-  content: "Content for post 50"
-  created_at: "2024-09-29"
+    <p>REST APIs are a common way to structure web services, and Python provides powerful tools to build scalable, efficient APIs for modern web applications.</p>
+  published_at: "2024-08-18 13:55:22"
+  tags: ["python", "rest", "apis"]
+  author: "paulo-coutinho"
+  image: /assets/images/blog/post-test.jpg

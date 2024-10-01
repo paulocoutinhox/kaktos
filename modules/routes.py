@@ -19,10 +19,10 @@ def page(path=None):
 
 
 # -----------------------------------------------------------------------------
-@flask_app.route("/category/<string:token>/")
-def category(token):
-    kaktos = system.get_kaktos("category")
-    return render_template(f"pages/category.html", kaktos=kaktos, token=token)
+@flask_app.route("/product-category/<string:token>/")
+def product_category(token):
+    kaktos = system.get_kaktos("product-category")
+    return render_template(f"pages/product-category.html", kaktos=kaktos, token=token)
 
 
 # -----------------------------------------------------------------------------
@@ -38,12 +38,12 @@ def product(token):
 def blog(page):
     kaktos = system.get_kaktos("blog")
 
-    paginated_data = config.blog_data["posts_pag"]["pages"]
+    pagination_data = config.blog_data["posts_pag"]["pages"]
 
-    if page <= len(paginated_data):
-        page_data = paginated_data[page - 1]
+    if page <= len(pagination_data):
+        pagination_data = pagination_data[page - 1]
     else:
-        page_data = {
+        pagination_data = {
             "total_items": 0,
             "total_pages": 0,
         }
@@ -51,8 +51,24 @@ def blog(page):
     return render_template(
         "pages/blog.html",
         kaktos=kaktos,
-        page_data=page_data,
+        pagination_data=pagination_data,
         page_num=page,
+    )
+
+
+# -----------------------------------------------------------------------------
+@flask_app.route("/blog/<int:year>/<int:month>/<int:day>/<string:token>/")
+def blog_post(year, month, day, token):
+    kaktos = system.get_kaktos("blog-post")
+
+    blog_post = next(
+        (post for post in config.blog_data["posts"] if post.get("token") == token), None
+    )
+
+    return render_template(
+        "pages/blog-post.html",
+        kaktos=kaktos,
+        blog_post=blog_post,
     )
 
 
