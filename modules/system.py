@@ -10,7 +10,7 @@ from livereload import Server
 from pygemstones.io import file
 from pygemstones.util import log
 
-from modules import assets, category, config, product, time
+from modules import assets, blog, config, product, product_category, time
 
 flask_app = None
 freezer_app = None
@@ -68,7 +68,8 @@ def setup():
     flask_app.config["FREEZER_DESTINATION"] = config.build_dir
 
     flask_app.jinja_env.globals.update(product=product)
-    flask_app.jinja_env.globals.update(category=category)
+    flask_app.jinja_env.globals.update(product_category=product_category)
+    flask_app.jinja_env.globals.update(blog=blog)
 
     flask_app.jinja_env.globals.update(file=file)
     flask_app.jinja_env.globals.update(time=time)

@@ -24,6 +24,10 @@
                     </li>
 
                     <li class="nav-item">
+                        <a class="nav-link {% if kaktos.path == 'blog' %}active{% endif %}" {% if kaktos.path=='blog' %} aria-current="page" {% endif %} href="{{ url_for('page', path='blog') }}">Blog</a>
+                    </li>
+
+                    <li class="nav-item">
                         <a class="nav-link {% if kaktos.path == 'gallery' %}active{% endif %}" {% if kaktos.path=='gallery' %} aria-current="page" {% endif %} href="{{ url_for('page', path='gallery') }}">Gallery</a>
                     </li>
 

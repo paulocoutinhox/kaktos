@@ -1,0 +1,63 @@
+{% extends "layouts/base.html" %}
+
+{% if blog_post.title %}
+    {% set page_title = blog_post.title %}
+{% endif %}
+
+{% if blog_post.content %}
+    {% set page_description = blog_post.content | striptags | truncate(160) %}
+{% endif %}
+
+{% if blog_post.tags %}
+    {% set page_keywords = blog_post.tags | join(", ") %}
+{% endif %}
+
+{% block content %}
+
+<main>
+    <section class="mt-5">
+        <div class="px-4 text-center">
+            <figure>
+                <img width="180" src="/assets/images/logo.png" alt="Logo">
+            </figure>
+        </div>
+
+        <h1 class="display-5 text-center my-5">
+            {{ blog_post.title }}
+        </h1>
+
+        <div class="container mt-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-muted mb-4">
+                        <small>
+                            Published on: {{ time.format_datetime(blog_post.published_at, '%Y-%m-%d %H:%M:%S') }}
+                        </small>
+                    </div>
+
+                    <figure class="mb-4">
+                        <img class="img-fluid rounded" src="{{ blog_post.image }}" alt="Post image">
+                    </figure>
+
+                    {% for post_tag in blog_post.tags %}
+                        <span class="badge text-bg-primary">
+                            {{ post_tag }}
+                        </span>
+                    {% endfor %}
+
+                    <p class="lead">
+                        {{ blog_post.content | safe }}
+                    </p>
+
+                    <div class="mt-5 text-center">
+                        <a href="{{ url_for('blog') }}" class="btn btn-primary">
+                            Back to blog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{% endblock %}

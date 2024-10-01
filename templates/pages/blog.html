@@ -1,0 +1,38 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<main>
+    <section class="mt-5">
+        <div class="px-4 text-center">
+            <figure>
+                <img width="180" src="/assets/images/logo.png" alt="Logo">
+            </figure>
+        </div>
+
+        <h1 class="display-5 text-center my-5">
+            {% if pagination_data.total_items > 0 %}
+                Blog Page {{ page_num }}
+            {% else %}
+                Blog
+            {% endif %}
+        </h1>
+    </section>
+    <section class="mt-5 section-posts-list">
+        <div class="container px-4 px-lg-5 my-5">
+            {% if pagination_data.total_items > 0 %}
+                <div class="row">
+                    {% include "shared/blog/list.html" %}
+                </div>
+            {% else %}
+                <div class="text-center">
+                    <strong>No posts</strong>
+                </div>
+            {% endif %}
+
+            {% include 'shared/pagination.html' %}
+        </div>
+    </section>
+</main>
+
+{% endblock %}

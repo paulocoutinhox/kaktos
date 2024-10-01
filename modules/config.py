@@ -1,9 +1,6 @@
-import glob
 import os
 
-import yaml
-
-from modules import time
+from modules import blog, product, product_category, time
 
 # general
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
@@ -12,7 +9,7 @@ template_dir = os.path.join(root_dir, "templates")
 
 title = "Kaktos"
 rtl = False
-base_url = "https://kaktos.netlify.app"
+base_url = "https://kaktos.pages.dev"
 
 page_description = "Kaktos is a python static site generator"
 page_keywords = "python, html, javascript, css, seo, site, static, generator, jamstack"
@@ -35,19 +32,11 @@ page_application_name = title
 version_js_file = time.current_time()
 version_css_file = time.current_time()
 
-# store data
-store_data = {
-    "categories": [],
-    "products": [],
-}
+# product data
+product_data = product.load_data()
 
-# load categories
-with open("extras/config/categories.yml", "r") as file:
-    store_data["categories"] = yaml.safe_load(file)
+# product category data
+product_category_data = product_category.load_data()
 
-# load products
-product_files = glob.glob("extras/config/products/**/*.yml")
-for product_file in product_files:
-    with open(product_file, "r") as file:
-        product_data = yaml.safe_load(file)
-        store_data["products"].append(product_data)
+# blog data
+blog_data = blog.load_data()
