@@ -41,6 +41,12 @@ With **Kaktos**, you can deploy your website without worrying about server manag
 - Scalable and fast deployment
 - Ideal for websites, blogs, e-commerce, and landing pages
 
+## 🔄 All-in-One Solution
+
+Unlike most static site generators, which focus on specific tasks, **Kaktos** provides an **all-in-one** solution.
+
+Whether you need to build a blog, an e-commerce store, a landing page, or any other static website, Kaktos brings it all together in one platform, simplifying your workflow and allowing you to manage everything in a single place.
+
 ## 🎬 Demo
 
 **Cloudflare:**
