@@ -4,23 +4,44 @@
     </a>
     <br>
     <br>
-    Python Static Site Generator
+    Python Static Site Generator for Serverless Applications 🚀
     <br>
 </p>
 
 <br>
 
-# κάκτος
+# κάκτος - Kaktos
 
 [![Kaktos](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml/badge.svg)](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml)
 
-Kaktos is a Python Static Site Generator.
+Kaktos is a powerful **Python Static Site Generator** designed to create highly efficient **serverless** applications. Why pay for hosting when you can deploy a completely static site for free?
 
-The idea is create a simple static site generator for people that don't need server-side languages.
+Create beautiful static websites, e-commerce stores, blogs, landing pages, and sales pages with **advanced pagination** and **dynamic features**, all without the hassle of server-side dependencies! 💻
 
-Designers can use it too, since it don't need people that know a programming language.
+## ✨ Features
 
-## Demo
+- **Static Website Generator** – Create responsive, fast, and secure static sites 🖼️
+- **Static E-commerce** – Build fully functioning static shopping websites 🛒
+- **Static Blog** – Advanced blog with pagination and dynamic content 📝
+- **Landing Pages & Sales Pages** – Perfect for creating high-conversion pages for any purpose 🛍️
+- **Easy to Use** – Intuitive design that requires no server-side programming 💡
+- **Serverless** – Deploy to platforms like Netlify, Cloudflare, or Render with no need for server management ☁️
+- **Many Free Hosting Options** – Many companies offer free hosting for static sites, as no server-side processing is required 🌐
+- **Fast & Secure** – Static sites are inherently faster and more secure ⚡
+- **No Hosting Fees** – Fully serverless deployment means **no hosting costs** 🆓
+- **SEO Optimized** – Generate clean, SEO-friendly pages 🕵️‍♂️
+- **Customizable Templates** – Based on the powerful Jinja2 templating engine 🎨
+
+## 🤔 Why Kaktos?
+
+With **Kaktos**, you can deploy your website without worrying about server management, database configuration, or paying for hosting. Focus on your content, and let Kaktos handle the rest. Enjoy the benefits of a **serverless architecture**, which has become a major trend in web development, reducing operational costs and simplifying the deployment process for companies of all sizes.
+
+- No need to manage infrastructure
+- No ongoing hosting fees
+- Scalable and fast deployment
+- Ideal for websites, blogs, e-commerce, and landing pages
+
+## 🎬 Demo
 
 **Cloudflare:**
 
@@ -42,7 +63,7 @@ Designers can use it too, since it don't need people that know a programming lan
 
 - Python 3.8+
 
-## Setup
+## 🚀 How to Get Started
 
 Install python dependencies:
 
@@ -50,7 +71,7 @@ Install python dependencies:
 python3 -m pip install -r requirements.txt
 ```
 
-## Development
+## 💻 Development
 
 To work in development mode, you only need execute one command:
 
@@ -62,7 +83,7 @@ When you change any file locally, the server will `process` it again and `auto-r
 
 This command *always force* use development mode, with or without environment variable.
 
-## Production
+## 🏭 Production
 
 To generate production files, you only need execute one command:
 
@@ -84,7 +105,7 @@ If you want start a web server to test files inside `build` folder use:
 python3 kaktos.py serve
 ```
 
-## Deploy
+## 📦 Deploying with One Click
 
 **Netlify:**
 
@@ -94,7 +115,7 @@ python3 kaktos.py serve
 
 [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/paulocoutinhox/kaktos/tree/render-support)
 
-## Structure
+## 🏗️ Project Structure
 
 - `kaktos.py` = main file that process your command
 - `requirements.txt` = python dependency list
@@ -106,19 +127,19 @@ python3 kaktos.py serve
 - `files` = folder that contains all assets and custom files
 - `extras/config` = folder that contains some configurations for dynamic sample data
 
-## Commands
+## 🔧 Commands
 
 Each command supported by **Kaktos** is a Python file located in the `modules/commands/` folder.
 
 To add new commands, simply create a new Python file in the `modules/commands/` folder and implement the `def run(params={})` method within it.
 
-## Templates
+## 📝 Templates
 
 All templates (html files) are based on Jinja2 library. You can see it here:
 
 https://jinja.palletsprojects.com/en/3.0.x/
 
-## Troubleshooting
+## 🛠️ Troubleshooting
 
 #### **• Python version**
 
@@ -137,17 +158,17 @@ Invalid Jinja2 syntax can prevent your HTML template from being built.
 
 Check your terminal to see the error message, the HTML file and the line number where invalid syntax was detected.
 
-## Buy me a coffee
+## ☕ Buy me a coffee
 
 <a href='https://ko-fi.com/paulocoutinho' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi1.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-## Images
+## 🖼️ Images
 
 All images for demo i got from:
 
 https://unsplash.com/
 
-## License
+## 📜 License
 
 [MIT](http://opensource.org/licenses/MIT)
 
