@@ -1,6 +1,10 @@
 from flask.templating import render_template
 
-from modules import config, system
+from modules import blog as m_blog
+from modules import config, pagination
+from modules import product as m_product
+from modules import product_category as m_product_category
+from modules import system
 from modules.system import flask_app
 
 
@@ -22,37 +26,48 @@ def page(path=None):
 @flask_app.route("/product-category/<string:token>/")
 def product_category(token):
     kaktos = system.get_kaktos("product-category")
-    return render_template(f"pages/product-category.html", kaktos=kaktos, token=token)
+
+    product_category_data = m_product_category.by_token(token)
+
+    return render_template(
+        f"pages/product-category.html",
+        kaktos=kaktos,
+        product_category_data=product_category_data,
+    )
 
 
 # -----------------------------------------------------------------------------
 @flask_app.route("/product/<string:token>/")
 def product(token):
     kaktos = system.get_kaktos("product")
-    return render_template(f"pages/product.html", kaktos=kaktos, token=token)
+
+    product_data = m_product.by_token(token)
+
+    return render_template(
+        f"pages/product.html",
+        kaktos=kaktos,
+        product_data=product_data,
+    )
 
 
 # -----------------------------------------------------------------------------
-@flask_app.route("/blog/", defaults={"page": 1})
-@flask_app.route("/blog/page/<int:page>/")
-def blog(page):
+@flask_app.route("/blog/", defaults={"page_num": 1})
+@flask_app.route("/blog/page/<int:page_num>/")
+def blog(page_num):
     kaktos = system.get_kaktos("blog")
 
     pagination_data = config.blog_data["posts_pag"]["pages"]
 
-    if page <= len(pagination_data):
-        pagination_data = pagination_data[page - 1]
+    if page_num <= len(pagination_data):
+        pagination_data = pagination_data[page_num - 1]
     else:
-        pagination_data = {
-            "total_items": 0,
-            "total_pages": 0,
-        }
+        pagination_data = pagination.empty("blog")
 
     return render_template(
         "pages/blog.html",
         kaktos=kaktos,
         pagination_data=pagination_data,
-        page_num=page,
+        page_num=page_num,
     )
 
 
@@ -61,14 +76,12 @@ def blog(page):
 def blog_post(year, month, day, token):
     kaktos = system.get_kaktos("blog-post")
 
-    blog_post = next(
-        (post for post in config.blog_data["posts"] if post.get("token") == token), None
-    )
+    blog_post_data = m_blog.by_token(token)
 
     return render_template(
         "pages/blog-post.html",
         kaktos=kaktos,
-        blog_post=blog_post,
+        blog_post_data=blog_post_data,
     )
 
 

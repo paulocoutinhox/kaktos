@@ -4,12 +4,12 @@
 
         {% if pagination_data.has_previous %}
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=1) }}" aria-label="«">
+            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=1) }}" aria-label="«">
                 <span aria-hidden="true">«</span>
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=pagination_data.previous_page) }}" aria-label="‹">
+            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.previous_page) }}" aria-label="‹">
                 <span aria-hidden="true">‹</span>
             </a>
         </li>
@@ -23,12 +23,12 @@
 
         {% if pagination_data.has_next %}
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=pagination_data.next_page) }}" aria-label="›">
+            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.next_page) }}" aria-label="›">
                 <span aria-hidden="true">›</span>
             </a>
         </li>
         <li class="page-item">
-            <a class="page-link" href="{{ url_for('blog', page=pagination_data.last_page) }}" aria-label="»">
+            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.last_page) }}" aria-label="»">
                 <span aria-hidden="true">»</span>
             </a>
         </li>

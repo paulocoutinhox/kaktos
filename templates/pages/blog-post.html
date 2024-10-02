@@ -1,15 +1,19 @@
 {% extends "layouts/base.html" %}
 
-{% if blog_post.title %}
-    {% set page_title = blog_post.title %}
+{% if blog_post_data.title %}
+    {% set page_title = blog_post_data.title %}
 {% endif %}
 
-{% if blog_post.content %}
-    {% set page_description = blog_post.content | striptags | truncate(160) %}
+{% if blog_post_data.content %}
+    {% set page_description = blog_post_data.content | striptags | truncate(160) %}
 {% endif %}
 
-{% if blog_post.tags %}
-    {% set page_keywords = blog_post.tags | join(", ") %}
+{% if blog_post_data.tags %}
+    {% set page_keywords = blog_post_data.tags | join(", ") %}
+{% endif %}
+
+{% if blog_post_data.image %}
+    {% set page_og_image = kaktos.config.base_url + blog_post_data.image %}
 {% endif %}
 
 {% block content %}
@@ -23,7 +27,7 @@
         </div>
 
         <h1 class="display-5 text-center my-5">
-            {{ blog_post.title }}
+            {{ blog_post_data.title }}
         </h1>
 
         <div class="container mt-4">
@@ -31,22 +35,22 @@
                 <div class="col-lg-8">
                     <div class="text-muted mb-4">
                         <small>
-                            Published on: {{ time.format_datetime(blog_post.published_at, '%Y-%m-%d %H:%M:%S') }}
+                            Published on: {{ time.format_datetime(blog_post_data.published_at, '%Y-%m-%d %H:%M:%S') }}
                         </small>
                     </div>
 
                     <figure class="mb-4">
-                        <img class="img-fluid rounded" src="{{ blog_post.image }}" alt="Post image">
+                        <img class="img-fluid rounded" src="{{ blog_post_data.image }}" alt="Post image">
                     </figure>
 
-                    {% for post_tag in blog_post.tags %}
+                    {% for post_tag in blog_post_data.tags %}
                         <span class="badge text-bg-primary">
                             {{ post_tag }}
                         </span>
                     {% endfor %}
 
                     <p class="lead">
-                        {{ blog_post.content | safe }}
+                        {{ blog_post_data.content | safe }}
                     </p>
 
                     <div class="mt-5 text-center">

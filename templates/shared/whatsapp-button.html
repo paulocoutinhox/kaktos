@@ -1,0 +1,6 @@
+{% if kaktos.config.whatsapp_number %}
+    <!-- whatsapp button -->
+    <a href="https://api.whatsapp.com/send?phone={{ kaktos.config.whatsapp_number }}&text={{ kaktos.config.whatsapp_message }}" class="whatsapp-button" target="_blank">
+        <i class="bi bi-whatsapp whatsapp-button-icon"></i>
+    </a>
+{% endif %}

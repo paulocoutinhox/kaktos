@@ -15,12 +15,12 @@ def by_token(token: str):
 
 # -----------------------------------------------------------------------------
 def load_data():
-    product_data = []
+    data = []
 
-    product_files = glob.glob("extras/config/products/**/*.yml")
+    files = glob.glob("extras/config/product/items/**/*.yml")
 
-    for product_file in product_files:
-        with open(product_file, "r") as file:
-            product_data.append(yaml.safe_load(file))
+    for file in files:
+        with open(file, "r") as f:
+            data.append(yaml.safe_load(f))
 
-    return product_data
+    return data

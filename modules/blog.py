@@ -24,11 +24,11 @@ def load_data():
     }
 
     # load post files
-    posts_files = glob.glob("extras/config/posts/**/*.yml")
+    files = glob.glob("extras/config/blog/posts/**/*.yml")
 
-    for post_file in posts_files:
-        with open(post_file, "r") as file:
-            posts_data = yaml.safe_load(file)
+    for file in files:
+        with open(file, "r") as f:
+            posts_data = yaml.safe_load(f)
             blog_data["posts"].extend(posts_data)
 
     # order by published_at desc
@@ -40,6 +40,6 @@ def load_data():
         )
 
     # pagination
-    blog_data["posts_pag"] = pagination.paginate(blog_data["posts"], 6)
+    blog_data["posts_pag"] = pagination.paginate("blog", blog_data["posts"], 6)
 
     return blog_data

@@ -1,49 +1,49 @@
 <div class="col mb-5">
     <div class="card h-100 card-product">
-        {% if prod_item.price_from %}
+        {% if product_item_data.price_from %}
         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
             Sale
         </div>
         {% endif %}
 
-        <a href="{{ url_for('product', token=prod_item.token) }}">
-            <img class="card-img-top" src="{{ prod_item.image }}" alt="{{ prod_item.name }}">
+        <a href="{{ url_for('product', token=product_item_data.token) }}">
+            <img class="card-img-top" src="{{ product_item_data.image }}" alt="{{ product_item_data.name }}">
         </a>
 
         <div class="card-body py-4 px-2">
             <div class="text-center">
                 <h5 class="fw-bolder">
-                    {{ prod_item.name }}
+                    {{ product_item_data.name }}
                 </h5>
 
-                {% if prod_item.price_from %}
+                {% if product_item_data.price_from %}
                     <span class="text-muted text-decoration-line-through">
-                        {{ prod_item.price_from }}
+                        {{ product_item_data.price_from }}
                     </span>
 
                     <br />
 
-                    {% if prod_item.installments > 0 %}
-                        {{ prod_item.installments }}x of
+                    {% if product_item_data.installments > 0 %}
+                        {{ product_item_data.installments }}x of
                     {% endif %}
 
-                    <span class="product-price">{{ prod_item.price }}</span>
+                    <span class="product-price">{{ product_item_data.price }}</span>
                 {% else %}
-                    {% if prod_item.installments > 0 %}
-                        {{ prod_item.installments }}x of
+                    {% if product_item_data.installments > 0 %}
+                        {{ product_item_data.installments }}x of
                     {% endif %}
 
-                    <span class="product-price">{{ prod_item.price }}</span>
+                    <span class="product-price">{{ product_item_data.price }}</span>
                 {% endif %}
             </div>
         </div>
 
         <div class="card-footer p-2 pb-4 pt-0 border-top-0 bg-transparent">
             <div class="text-center">
-                <a class="btn btn-outline-dark mt-auto" href="{{ url_for('product', token=prod_item.token) }}">
+                <a class="btn btn-outline-dark mt-auto" href="{{ url_for('product', token=product_item_data.token) }}">
                     Details
                 </a>
-                <a class="btn btn-outline-dark mt-auto" href="{{ prod_item.buy }}">
+                <a class="btn btn-outline-dark mt-auto" href="{{ product_item_data.buy }}">
                     Buy
                 </a>
             </div>

@@ -1,5 +1,5 @@
 # -----------------------------------------------------------------------------
-def paginate(items, per_page):
+def paginate(path, items, per_page):
     """
     Paginate a list of items and return all necessary data for static HTML generation.
 
@@ -27,6 +27,7 @@ def paginate(items, per_page):
 
         # data for the current page
         page_data = {
+            "path": path,
             "total_items": total_items,
             "total_pages": total_pages,
             "current_page": current_page,
@@ -46,4 +47,13 @@ def paginate(items, per_page):
         "pages": pagination_data,
         "total_items": total_items,
         "total_pages": total_pages,
+    }
+
+
+# -----------------------------------------------------------------------------
+def empty(path):
+    return {
+        "pages": [],
+        "total_items": 0,
+        "total_pages": 0,
     }

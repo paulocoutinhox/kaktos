@@ -9,7 +9,7 @@
 
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
         {% for product_token in category.products %}
-            {% set prod_item = product.by_token(product_token) %}
+            {% set product_item_data = product.by_token(product_token) %}
             {% include 'shared/product/list-item.html' %}
         {% endfor %}
     </div>
