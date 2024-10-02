@@ -1,3 +1,5 @@
+import glob
+
 import yaml
 
 
@@ -17,9 +19,12 @@ def by_token(token: str):
 
 # -----------------------------------------------------------------------------
 def load_data():
-    product_category_data = []
+    data = []
 
-    with open("extras/config/product-categories.yml", "r") as file:
-        product_category_data = yaml.safe_load(file)
+    files = glob.glob("extras/config/product/category/**/*.yml")
 
-    return product_category_data
+    for file in files:
+        with open(file, "r") as f:
+            data.extend(yaml.safe_load(f))
+
+    return data

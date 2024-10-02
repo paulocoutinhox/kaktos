@@ -1,17 +1,15 @@
 {% extends "layouts/base.html" %}
 
-{% set cat = product_category.by_token(token) %}
-
-{% if cat.seo_title %}
-    {% set page_title = cat.seo_title %}
+{% if product_category_data.seo_title %}
+    {% set page_title = product_category_data.seo_title %}
 {% endif %}
 
-{% if cat.seo_desc %}
-    {% set page_description = cat.seo_desc %}
+{% if product_category_data.seo_desc %}
+    {% set page_description = product_category_data.seo_desc %}
 {% endif %}
 
-{% if cat.seo_keywords %}
-    {% set page_keywords = cat.seo_keywords %}
+{% if product_category_data.seo_keywords %}
+    {% set page_keywords = product_category_data.seo_keywords %}
 {% endif %}
 
 {% block content %}
@@ -25,10 +23,10 @@
         </div>
 
         <h1 class="display-5 text-center my-5">
-            {{ cat.name }}
+            {{ product_category_data.name }}
         </h1>
 
-        {% if cat.products %}
+        {% if product_category_data.products %}
             {% include "shared/product-category/list.html" %}
         {% endif %}
     </section>

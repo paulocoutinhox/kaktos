@@ -32,6 +32,10 @@ page_application_name = title
 version_js_file = time.current_time()
 version_css_file = time.current_time()
 
+# whatsapp button
+whatsapp_number = ""
+whatsapp_message = "Hello. I would like to ask a question."
+
 # product data
 product_data = product.load_data()
 
