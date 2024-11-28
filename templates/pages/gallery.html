@@ -37,7 +37,7 @@
             Gallery
         </h1>
 
-        <div class="row gallery-container" uk-grid uk-lightbox="animation: slide">
+        <div class="row gallery-container justify-content-center" uk-grid uk-lightbox="animation: slide">
             {% for gallery in file.find_dirs(path.join("files", "images", "gallery"), "*") %}
 
                 {% for gallery_item in file.find_files(gallery, ["*.jpg", "*.png"]) %}
@@ -46,7 +46,9 @@
 
             {% else %}
 
-                <strong>No gallery</strong>
+                <div class="col-12 text-center">
+                    <strong>No gallery</strong>
+                </div>
 
             {% endfor %}
         </div>
