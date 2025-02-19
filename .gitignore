@@ -6,7 +6,7 @@ build/
 venv
 .env
 *.iml
-Thumb.sdb
+Thumbs.db
 .vscode
 __pycache__
 *.lock
