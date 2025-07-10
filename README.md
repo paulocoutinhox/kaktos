@@ -151,7 +151,7 @@ https://jinja.palletsprojects.com/en/stable/
 
 Each service that build the static content automatically use a specific python version.
 
-If you need change the python version used to build all files and pages, edit file `runtime.txt` and change to `3.9`, `3.13` or other.
+If you need change the python version used to build all files and pages, edit file `.python-runtime` and change to `3.13` or other.
 
 These services that im using have this python version:
 
