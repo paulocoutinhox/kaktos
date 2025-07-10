@@ -6,4 +6,4 @@ services:
   staticPublishPath: build/
   envVars:
   - key: PYTHON_VERSION
-    value: 3.8.18
+    value: 3.13.4

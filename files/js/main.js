@@ -7,3 +7,9 @@ function copyToClipboard(text) {
         //console.error('Error when copy link: ', err);
     });
 }
+
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/assets/js/service-worker.js');
+    });
+}

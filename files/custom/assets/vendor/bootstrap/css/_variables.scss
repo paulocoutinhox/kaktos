@@ -1,9 +1,8 @@
-// Cosmo 5.3.3
+// Cosmo 5.3.7
 // Bootswatch
 
 $theme: "cosmo" !default;
-$variable-prefix:  bs- !default; // Deprecated in v5.2.0 for the shorter `$prefix`
-$prefix: $variable-prefix !default;
+$prefix: "bs-" !default;
 
 //
 // Color system

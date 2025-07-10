@@ -67,7 +67,7 @@ Whether you need to build a blog, an e-commerce store, a landing page, or any ot
 
 ## Requirements
 
-- Python 3.8+
+- Python 3.9+
 
 ## 🚀 How to Get Started
 
@@ -143,7 +143,7 @@ To add new commands, simply create a new Python file in the `modules/commands/` 
 
 All templates (html files) are based on Jinja2 library. You can see it here:
 
-https://jinja.palletsprojects.com/en/3.0.x/
+https://jinja.palletsprojects.com/en/stable/
 
 ## 🛠️ Troubleshooting
 
@@ -151,12 +151,12 @@ https://jinja.palletsprojects.com/en/3.0.x/
 
 Each service that build the static content automatically use a specific python version.
 
-If you need change the python version used to build all files and pages, edit file `runtime.txt` and change to `3.8`, `3.9` or other.
+If you need change the python version used to build all files and pages, edit file `runtime.txt` and change to `3.9`, `3.13` or other.
 
 These services that im using have this python version:
 
-- Netlify: Python 3.8 (https://docs.netlify.com/configure-builds/available-software-at-build-time/)
-- Cloudflare Pages: Python 3.11.5 (https://developers.cloudflare.com/pages/configuration/language-support-and-tools)
+- Netlify: Python 3.X (https://docs.netlify.com/configure-builds/available-software-at-build-time/)
+- Cloudflare Pages: Python 3.X (https://developers.cloudflare.com/pages/configuration/build-image/)
 
 #### **• Template changed, but not reloaded**
 
