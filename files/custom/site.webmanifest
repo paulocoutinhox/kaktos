@@ -1,6 +1,7 @@
 {
     "name": "Kaktos - Static site generator",
     "short_name": "Kaktos",
+    "start_url": "/",
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
