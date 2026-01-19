@@ -71,11 +71,51 @@ Whether you need to build a blog, an e-commerce store, a landing page, or any ot
 
 ## 🚀 How to Get Started
 
-Install python dependencies:
+### Installation
+
+#### Option 1: Using Virtual Environment (Recommended)
+
+Using a virtual environment is the recommended approach as it keeps your project dependencies isolated from your system Python installation.
+
+1. **Create a virtual environment:**
+
+```bash
+python3 -m venv venv
+```
+
+2. **Activate the virtual environment:**
+
+   - **On macOS/Linux:**
+   ```bash
+   source venv/bin/activate
+   ```
+
+   - **On Windows:**
+   ```bash
+   venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Deactivate the virtual environment** (when you're done working):
+
+```bash
+deactivate
+```
+
+#### Option 2: Direct Installation
+
+If you prefer to install dependencies directly to your system Python:
 
 ```bash
 python3 -m pip install -r requirements.txt
 ```
+
+> **Note:** It's recommended to use a virtual environment (Option 1) to avoid conflicts with other Python projects.
 
 ## 💻 Development
 
@@ -178,4 +218,4 @@ https://unsplash.com/
 
 [MIT](http://opensource.org/licenses/MIT)
 
-Copyright (c) 2021-2025, Paulo Coutinho
+Copyright (c) 2021-2026, Paulo Coutinho
