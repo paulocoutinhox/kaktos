@@ -1,29 +1,33 @@
 {% set blog_post_link = url_for('blog_post', year=time.format_datetime(blog_post.published_at, '%Y'), month=time.format_datetime(blog_post.published_at, '%m'), day=time.format_datetime(blog_post.published_at, '%d'), token=blog_post.token) %}
 
-<div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4">
-    <div class="card mb-4 h-100 d-flex flex-column">
-        <a href="{{ blog_post_link }}">
-            <img class="card-img-top" src="{{ blog_post.image }}">
-        </a>
+<div
+    class="group mb-6 flex h-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition-colors hover:border-slate-300">
+    <a class="block overflow-hidden bg-slate-50" href="{{ blog_post_link }}">
+        <img class="h-48 w-full object-cover transition duration-300 group-hover:opacity-95"
+            src="{{ kaktos.frontend.url(blog_post.image) }}" alt="{{ blog_post.title }}">
+    </a>
 
-        <div class="card-body flex-grow-1">
-            <div class="small text-muted">
-                {{ time.format_datetime(blog_post.published_at, '%Y-%m-%d %H:%M:%S') }}
-            </div>
-            <h2 class="card-title h4">
-                <a href="{{ blog_post_link }}" class="text-decoration-none text-dark">
-                    {{ blog_post.title }}
-                </a>
-            </h2>
-            <p class="card-text">
-                {{ blog_post.content | striptags | truncate(150) }}
-            </p>
-        </div>
-
-        <div class="card-footer text-end mt-auto">
-            <a class="btn btn-primary" href="{{ blog_post_link }}">
-                Read more →
+    <div class="flex flex-1 flex-col p-5">
+        <time class="text-xs font-medium uppercase tracking-wide text-slate-400"
+            datetime="{{ blog_post.published_at }}">
+            {{ time.format_datetime(blog_post.published_at, '%Y-%m-%d %H:%M:%S') }}
+        </time>
+        <h2 class="mt-2 text-lg font-semibold tracking-tight text-slate-900">
+            <a class="text-slate-900 underline-offset-2 transition hover:text-primary hover:underline"
+                href="{{ blog_post_link }}">
+                {{ blog_post.title }}
             </a>
-        </div>
+        </h2>
+        <p class="mt-3 flex-1 text-sm leading-relaxed text-slate-600">
+            {{ blog_post.content | striptags | truncate(150) }}
+        </p>
+    </div>
+
+    <div class="border-t border-slate-100 px-5 py-4">
+        <a class="inline-flex items-center gap-1.5 text-sm font-medium text-primary transition hover:text-primary-hover"
+            href="{{ blog_post_link }}">
+            Read more
+            <span aria-hidden="true" class="translate-x-0 transition group-hover:translate-x-0.5">→</span>
+        </a>
     </div>
 </div>

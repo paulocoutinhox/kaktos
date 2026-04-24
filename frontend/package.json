@@ -1,0 +1,20 @@
+{
+  "name": "kaktos-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.4",
+    "tailwindcss": "^4.2.4",
+    "vite": "^8.0.10"
+  },
+  "dependencies": {
+    "glightbox": "^3.3.1"
+  }
+}

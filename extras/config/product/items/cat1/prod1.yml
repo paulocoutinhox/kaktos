@@ -1,6 +1,6 @@
 name: "Product 1"
 token: product-1
-image: /assets/images/products/sample.png
+image: images/products/sample.png
 price: "$9,99"
 installments: 3
 buy: https://github.com/sponsors/paulocoutinhox

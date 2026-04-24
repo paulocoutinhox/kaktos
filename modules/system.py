@@ -1,3 +1,4 @@
+import glob
 import importlib
 import os
 import sys
@@ -10,7 +11,7 @@ from livereload import Server
 from pygemstones.io import file
 from pygemstones.util import log
 
-from modules import assets, blog, config, product, product_category, time
+from modules import blog, config, frontend, product, product_category, time
 
 flask_app = None
 freezer_app = None
@@ -36,6 +37,7 @@ def get_kaktos(path):
 
     kc.is_debug = is_debug()
     kc.config = reload(config)
+    kc.frontend = frontend.api
     kc.path = path
 
     return kc
@@ -86,12 +88,10 @@ def setup():
 def build_pages():
     print("building site...")
 
+    frontend.run_frontend_build()
     freezer_app.freeze()
-
-    assets.build_js()
-    assets.build_styles()
-    assets.copy_images()
-    assets.copy_custom()
+    frontend.publish_static_to_build()
+    frontend.publish_site_root()
 
     print("building done")
 
@@ -103,10 +103,28 @@ def start_live_reload():
     server = Server()
 
     server.watch(os.path.join(config.root_dir, "templates"), build_pages)
-    server.watch(os.path.join(config.root_dir, "files", "css"), assets.build_styles)
-    server.watch(os.path.join(config.root_dir, "files", "js"), assets.build_js)
-    server.watch(os.path.join(config.root_dir, "files", "images"), assets.copy_images)
-    server.watch(os.path.join(config.root_dir, "files", "custom"), assets.copy_custom)
+
+    fe = os.path.join(config.root_dir, "frontend")
+    for sub in ("src", "public", "raw"):
+        path = os.path.join(fe, sub)
+        if os.path.isdir(path):
+            server.watch(path, build_pages)
+
+    for pattern in (
+        "vite.config.*",
+        "tailwind.config.*",
+        "postcss.config.*",
+        "eslint.config.*",
+    ):
+        for filepath in glob.glob(os.path.join(fe, pattern)):
+            if os.path.isfile(filepath):
+                server.watch(filepath, build_pages)
+
+    server.watch(os.path.join(fe, "package.json"), build_pages)
+    lockfile = os.path.join(fe, "package-lock.json")
+    if os.path.isfile(lockfile):
+        server.watch(lockfile, build_pages)
+
     server.watch(os.path.join(config.root_dir, "modules", "config.py"), build_pages)
 
     server.serve(root="build", port=5555)

@@ -1,14 +1,13 @@
 <!-- footer -->
-<footer class="footer mt-auto py-3 bg-light">
-    <div class="container">
-        <span class="text-muted">
-            Kaktos by <a href="https://github.com/paulocoutinhox/kaktos">Paulo Coutinho</a>
+<footer class="mt-auto border-t border-slate-200 bg-slate-50 py-6">
+    <div class="container mx-auto max-w-6xl px-4">
+        <span class="text-sm text-slate-600">
+            Kaktos by <a class="font-medium text-primary hover:text-primary-hover" href="https://github.com/paulocoutinhox/kaktos">Paulo Coutinho</a>
         </span>
     </div>
 </footer>
 
-<!-- others files -->
-<script src="/assets/js/main.js{% if not kaktos.is_debug %}?v={{ kaktos.config.version_js_file }}{% endif %}"></script>
+{{ kaktos.frontend.scripts_all() }}
 
 {% include 'shared/google-analytics.html' %}
 {% include 'shared/whatsapp-button.html' %}

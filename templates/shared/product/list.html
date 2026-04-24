@@ -1,13 +1,14 @@
 {% for category in kaktos.config.product_category_data %}
 
-<div class="container px-4 px-lg-5">
-    <h2 class="mb-4 text-center">
-        <a href="{{ url_for('product_category', token=category.token) }}" class="text-decoration-none text-dark">
+<div class="container mx-auto max-w-6xl px-4">
+    <h2 class="mb-8 text-center text-2xl font-bold text-slate-900">
+        <a class="text-slate-900 transition hover:text-primary"
+            href="{{ url_for('product_category', token=category.token) }}">
             {{ category.name }}
         </a>
     </h2>
 
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
         {% for product_token in category.products %}
             {% set product_item_data = product.by_token(product_token) %}
             {% include 'shared/product/list-item.html' %}
@@ -17,9 +18,9 @@
 
 {% else %}
 
-<div class="container my-5">
-    <div class="row justify-content-center text-center">
-        <strong>No products</strong>
+<div class="container mx-auto my-12 max-w-6xl px-4">
+    <div class="py-12 text-center text-slate-600">
+        <p class="font-semibold text-slate-700">No products</p>
     </div>
 </div>
 

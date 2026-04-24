@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+@source "../../templates/**/*.html";
+
+@theme {
+    --color-primary: #188d77;
+    --color-primary-hover: #11967d;
+}
+
+@layer base {
+    pre {
+        @apply my-4 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 p-4 text-sm leading-relaxed text-slate-800;
+    }
+
+    :not(pre) > code {
+        @apply rounded bg-slate-100 px-1.5 py-0.5 font-mono text-[0.875em] text-slate-800;
+    }
+
+    pre code {
+        @apply border-0 bg-transparent p-0 text-inherit;
+    }
+}
+
+@layer components {
+    .product-price {
+        @apply font-semibold text-primary;
+    }
+
+    .whatsapp-button {
+        @apply fixed bottom-5 right-5 z-[1000] flex h-[60px] w-[60px] items-center justify-center rounded-full bg-[#25d366] text-white ring-1 ring-black/10 transition hover:bg-[#20b358];
+    }
+
+    .whatsapp-button-icon {
+        @apply h-7 w-7;
+    }
+}

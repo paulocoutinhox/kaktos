@@ -3,57 +3,36 @@
 {% set page_title = "Gallery" %}
 {% set page_description = "Gallery kaktos page description" %}
 
-{% block footer %}
-<link rel="stylesheet" href="/assets/vendor/magnific-popup/css/magnific-popup.css" type="text/css" />
-<script src="/assets/vendor/magnific-popup/js/magnific-popup.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('.gallery-image').magnificPopup({
-            type: 'image',
-            gallery: {
-                enabled: true
-            },
-        });
-    });
-</script>
-{% endblock %}
-
 {% block content %}
 
 {% from 'shared/macros.html' import page_container_start, page_container_end %}
 
 {{ page_container_start() }}
 
-<main>
-    <section class="mt-5">
-        <div class="px-4 text-center">
-            <figure>
-                <img width="180" src="/assets/images/logo.png" alt="Logo">
-            </figure>
-        </div>
+<section class="px-4 py-10">
+    <div class="mb-10 text-center">
+        <figure class="mb-6 flex justify-center">
+            <img class="h-auto w-44" src="{{ kaktos.frontend.url('images/logo.png') }}" alt="Logo" width="180" height="180">
+        </figure>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Gallery</h1>
+    </div>
 
-        <h1 class="display-5 text-center my-5">
-            Gallery
-        </h1>
+    <div class="gallery-grid mx-auto grid max-w-6xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+        {% for gallery in file.find_dirs(kaktos.config.gallery_dir, "*") %}
 
-        <div class="row gallery-container justify-content-center" uk-grid uk-lightbox="animation: slide">
-            {% for gallery in file.find_dirs(path.join("files", "images", "gallery"), "*") %}
-
-                {% for gallery_item in file.find_files(gallery, ["*.jpg", "*.png"]) %}
-                    {% include 'shared/gallery/list-item.html' %}
-                {% endfor %}
-
-            {% else %}
-
-                <div class="col-12 text-center">
-                    <strong>No gallery</strong>
-                </div>
-
+            {% for gallery_item in file.find_files(gallery, ["*.jpg", "*.png"]) %}
+                {% include 'shared/gallery/list-item.html' %}
             {% endfor %}
-        </div>
-    </section>
-</main>
+
+        {% else %}
+
+            <div class="col-span-full py-12 text-center text-slate-600">
+                <p class="font-semibold text-slate-700">No gallery</p>
+            </div>
+
+        {% endfor %}
+    </div>
+</section>
 
 {{ page_container_end() }}
 

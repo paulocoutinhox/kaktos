@@ -1,39 +1,44 @@
 {% if pagination_data.total_pages > 0 %}
-<nav aria-label="Page Navigation" class="mb-5">
-    <ul class="pagination justify-content-center">
+<nav aria-label="Page navigation" class="mt-14 border-t border-slate-200 pt-10">
+    <div class="mx-auto flex max-w-xl flex-col items-center gap-5 sm:flex-row sm:justify-center sm:gap-8">
 
-        {% if pagination_data.has_previous %}
-        <li class="page-item">
-            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=1) }}" aria-label="«">
-                <span aria-hidden="true">«</span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.previous_page) }}" aria-label="‹">
-                <span aria-hidden="true">‹</span>
-            </a>
-        </li>
-        {% endif %}
+        <p class="text-center text-sm text-slate-500">
+            Page
+            <span class="tabular-nums font-semibold text-slate-900">{{ page_num }}</span>
+            <span class="text-slate-300">/</span>
+            <span class="tabular-nums font-semibold text-slate-900">{{ pagination_data.total_pages }}</span>
+        </p>
 
-        <li class="page-item active" aria-current="page">
-            <span class="page-link">
-                Page {{ page_num }} of {{ pagination_data.total_pages }}
-            </span>
-        </li>
+        <div class="flex flex-wrap items-center justify-center gap-2">
+            {% if pagination_data.has_previous %}
+            <div class="flex overflow-hidden rounded-md border border-slate-200 bg-white">
+                <a class="flex h-9 min-w-9 items-center justify-center border-r border-slate-200 px-3 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900"
+                    href="{{ url_for(pagination_data.path, page_num=1) }}" aria-label="First page">
+                    <span aria-hidden="true" class="leading-none">«</span>
+                </a>
+                <a class="flex h-9 min-w-9 items-center justify-center px-3 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900"
+                    href="{{ url_for(pagination_data.path, page_num=pagination_data.previous_page) }}"
+                    aria-label="Previous page">
+                    <span aria-hidden="true" class="leading-none">‹</span>
+                </a>
+            </div>
+            {% endif %}
 
-        {% if pagination_data.has_next %}
-        <li class="page-item">
-            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.next_page) }}" aria-label="›">
-                <span aria-hidden="true">›</span>
-            </a>
-        </li>
-        <li class="page-item">
-            <a class="page-link" href="{{ url_for(pagination_data.path, page_num=pagination_data.last_page) }}" aria-label="»">
-                <span aria-hidden="true">»</span>
-            </a>
-        </li>
-        {% endif %}
-
-    </ul>
+            {% if pagination_data.has_next %}
+            <div class="flex overflow-hidden rounded-md border border-slate-200 bg-white">
+                <a class="flex h-9 min-w-9 items-center justify-center border-r border-slate-200 px-3 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900"
+                    href="{{ url_for(pagination_data.path, page_num=pagination_data.next_page) }}"
+                    aria-label="Next page">
+                    <span aria-hidden="true" class="leading-none">›</span>
+                </a>
+                <a class="flex h-9 min-w-9 items-center justify-center px-3 text-sm text-slate-600 transition hover:bg-slate-50 hover:text-slate-900"
+                    href="{{ url_for(pagination_data.path, page_num=pagination_data.last_page) }}"
+                    aria-label="Last page">
+                    <span aria-hidden="true" class="leading-none">»</span>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
 </nav>
 {% endif %}

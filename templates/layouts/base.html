@@ -4,14 +4,14 @@
 {%- set page_language = kaktos.config.page_language -%}
 {% endif %}
 
-<html lang="{{ page_language }}">
+<html lang="{{ page_language }}"{% if kaktos.config.rtl %} dir="rtl"{% endif %}>
 
 <head>
     {% include 'shared/head.html' %}
     {% block head %}{% endblock %}
 </head>
 
-<body class="main">
+<body class="flex min-h-dvh flex-col bg-white text-slate-900 antialiased">
     {% include 'shared/header.html' %}
 
     {% block content %}{% endblock %}

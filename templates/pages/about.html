@@ -9,18 +9,15 @@
 
 {{ page_container_start() }}
 
-<main>
-    <section class="mt-5">
-        <div class="px-4 text-center">
-            <figure>
-                <img width="180" src="/assets/images/logo.png" alt="Logo">
-            </figure>
-        </div>
+<section class="px-4 py-10">
+    <div class="mb-10 text-center">
+        <figure class="mb-6 flex justify-center">
+            <img class="h-auto w-44" src="{{ kaktos.frontend.url('images/logo.png') }}" alt="Logo" width="180" height="180">
+        </figure>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">About Kaktos</h1>
+    </div>
 
-        <h1 class="display-5 text-center my-5">
-            About Kaktos
-        </h1>
-
+    <div class="mx-auto max-w-2xl space-y-4 text-slate-700">
         <p>
             Kaktos is a python static site generator.
         </p>
@@ -34,14 +31,15 @@
         <p>
             Version: {{ time.current_time_str() }}
         </p>
+    </div>
 
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/paulocoutinhox/kaktos">
-                Learn more
-            </a>
-        </div>
-    </section>
-</main>
+    <div class="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        <a class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-6 py-3 text-base font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            href="https://github.com/paulocoutinhox/kaktos">
+            Learn more
+        </a>
+    </div>
+</section>
 
 {{ page_container_end() }}
 

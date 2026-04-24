@@ -1,6 +1,7 @@
 *.pyc
 .DS_Store
 node_modules/
+frontend/dist/
 build/
 .idea/
 venv
@@ -10,3 +11,4 @@ Thumbs.db
 .vscode
 __pycache__
 *.lock
+temp/

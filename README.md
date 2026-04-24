@@ -31,6 +31,7 @@ Create beautiful static websites, e-commerce stores, blogs, landing pages, and s
 - **No Hosting Fees** – Fully serverless deployment means **no hosting costs** 🆓
 - **SEO Optimized** – Generate clean, SEO-friendly pages 🕵️‍♂️
 - **Customizable Templates** – Based on the powerful Jinja2 templating engine 🎨
+- **Integrated frontend** – All CSS, JavaScript, and images live under `frontend/`, the Python build runs Vite and npm for you, and the site UI is styled with **Tailwind CSS** only (no Bootstrap or other CSS frameworks) ⚙️
 
 ## 🤔 Why Kaktos?
 
@@ -67,7 +68,8 @@ Whether you need to build a blog, an e-commerce store, a landing page, or any ot
 
 ## Requirements
 
-- Python 3.9+
+- **Python** 3.9+
+- **Node.js** **20.19+** or **22.12+** (LTS **22** recommended) and **npm** on your `PATH` so the Python build can invoke **Vite 8** (you never run `npm` yourself for normal development or production builds). The repo pins **22** via **`.nvmrc`**, **`netlify.toml`**, **`render.yaml`**, and **`amplify.yml`** where the host reads them.
 
 ## 🚀 How to Get Started
 
@@ -125,9 +127,21 @@ To work in development mode, you only need execute one command:
 python3 kaktos.py
 ```
 
-When you change any file locally, the server will `process` it again and `auto-refresh` on browser.
+With **`python3 kaktos.py`** you get one integrated dev loop: **LiveReload** watches the paths below, runs **`build_pages()`** on each save (Vite for CSS/JS in `frontend/src/`, then Frozen-Flask for HTML from `templates/`, then copies **`frontend/dist/`** to **`build/static/`** and `frontend/raw/` into `build/`), and then asks the browser to refresh when the tab is connected.
 
-This command *always force* use development mode, with or without environment variable.
+What triggers a rebuild:
+
+- **HTML (Jinja pages and partials)** — anything under `templates/`
+- **CSS and JS processed by Vite** (including Tailwind) — under `frontend/src/` (for example `main.css`, `main.js`)
+- **Static files merged into the Vite output** — under `frontend/public/` (images, etc.; published under `/static/…`)
+- **Files at the site root after build** — under `frontend/raw/` (favicon, `robots.txt`, …)
+- **Tooling** — `frontend/package.json`, `frontend/package-lock.json` if present, and root configs in `frontend/` matching `vite.config.*`, `tailwind.config.*`, `postcss.config.*`, or `eslint.config.*`
+
+Each cycle completes the Vite step before the static pages are regenerated so `build/` stays consistent. The browser may skip a rapid second reload within a few seconds (LiveReload throttling)—see **Troubleshooting** if needed.
+
+This command *always* forces development mode, with or without environment variable.
+
+You only run **`python3 kaktos.py`** for local development and **`python3 kaktos.py build`** for production output. Dependencies under `frontend/` are installed automatically on first build when needed.
 
 ## 🏭 Production
 
@@ -163,15 +177,52 @@ python3 kaktos.py serve
 
 ## 🏗️ Project Structure
 
-- `kaktos.py` = main file that process your command
-- `requirements.txt` = python dependency list
-- `templates/layouts` = folder for all layouts that pages can inherit
-- `templates/pages` = folder for pages that will be generated
-- `templates/shared` = folder for parts of layouts that can be shared with other layouts
-- `modules` = kaktos modules
-- `modules/config.py` = configuration file
-- `files` = folder that contains all assets and custom files
-- `extras/config` = folder that contains some configurations for dynamic sample data
+- `kaktos.py` — main entrypoint that dispatches commands
+- `requirements.txt` — Python dependencies
+- `templates/layouts` — base layouts pages extend
+- `templates/pages` — page templates (frozen routes)
+- `templates/shared` — partials, macros, shared fragments
+- `modules/` — Python code (`config.py`, routes, `frontend.py`, …)
+- `frontend/` — all **CSS, JS, and images** for the site:
+  - `frontend/src/` — Vite entry (`main.js`, Tailwind `main.css`)
+  - `frontend/public/` — static files copied into `/static/…` (logos, gallery images, etc.)
+  - `frontend/raw/` — files copied to the **build root** (favicon, `robots.txt`, `CNAME`, `site.webmanifest`, …); **nothing here runs through Vite**—they are copied as-is to the published site root, unlike `frontend/public/`, which is emitted under `/static/…`.
+  - `frontend/package.json` / `vite.config.js` — Node toolchain (invoked only from Python)
+- `extras/config/` — YAML sample data (blog posts, products, categories)
+
+## 🎨 Frontend assets in templates
+
+Static assets are split by folder: anything under **`frontend/public/`** is published under **`/static/…`** (on disk: **`build/static/`**). Anything under **`frontend/raw/`** is copied to the **root** of the generated site (same path as in that folder, e.g. `/robots.txt`). In Jinja you reference them with **`kaktos.frontend`** so you never hard-code hashed filenames or the `/static` URL prefix.
+
+### `kaktos.frontend` API
+
+| Call | Resolves |
+|------|-----------|
+| `{{ kaktos.frontend.url('images/logo.png') }}` | `frontend/public/images/logo.png` → `/static/images/logo.png` |
+| `{{ kaktos.frontend.root_url('favicon.ico') }}` | `frontend/raw/favicon.ico` → `/favicon.ico` |
+| `{{ kaktos.frontend.abs_url('images/logo-og.png') }}` | Same as `url()` but absolute for **Open Graph / sharing**, using `config.base_url` (pass through unchanged if the value already starts with `http://` or `https://`) |
+| `{{ kaktos.frontend.styles_all() }}` | Injects `<link>` tags for **every** Rollup input entry’s CSS (sorted, deduped) |
+| `{{ kaktos.frontend.scripts_all() }}` | Injects `<script type="module" … defer>` for **every** Rollup input entry’s JS (sorted) |
+| `{{ kaktos.frontend.styles_for('main') }}` | Same as `styles_all()` but only for the named entry (e.g. split layouts) |
+| `{{ kaktos.frontend.script_for('main') }}` | Same as `scripts_all()` but only for the named entry |
+
+The default layout uses **`styles_all()`** in `templates/shared/head.html` and **`scripts_all()`** in `templates/shared/footer.html` so new Vite inputs in `frontend/vite.config.js` are picked up automatically. Use **`styles_for('…')`** / **`script_for('…')`** when you need explicit control (per-page bundles, order, or omitting entries).
+
+**Gallery folders on disk:** set **`gallery_dir`** in `modules/config.py` (absolute path). The gallery template uses `file.find_dirs(kaktos.config.gallery_dir, "*")` so you can point it anywhere without changing core code. Thumbnails use **[GLightbox](https://github.com/biati-digital/glightbox)** (`glightbox` on the link + `data-gallery` per album); adjust options in `frontend/src/main.js` if needed.
+
+Layout helpers **`page_container_start`** / **`page_container_end`** live in `templates/shared/macros.html` (optional wrappers around the main content column).
+
+### Examples (inline)
+
+```jinja
+<img src="{{ kaktos.frontend.url('images/photo.jpg') }}" alt="Photo">
+<a href="{{ kaktos.frontend.root_url('ads.txt') }}">Ads</a>
+<meta property="og:image" content="{{ kaktos.frontend.abs_url('images/logo-og.png') }}">
+```
+
+### YAML and data files
+
+Use paths **relative to `frontend/public/`** in YAML (e.g. `images/blog/post.jpg`), then in templates wrap dynamic fields with **`kaktos.frontend.url(...)`** when outputting `src` or `href` (unless the field is already a full `https://` URL).
 
 ## 🔧 Commands
 
@@ -189,14 +240,21 @@ https://jinja.palletsprojects.com/en/stable/
 
 #### **• Python version**
 
-Each service that build the static content automatically use a specific python version.
+CI and local builds use the Python you configure. The repo includes `.python-version` (e.g. 3.13) for tools that respect it.
 
-If you need change the python version used to build all files and pages, edit file `.python-runtime` and change to `3.13` or other.
+Hosting platforms ship their own Python and Node images. See their current defaults and how to pin a version:
 
-These services that im using have this python version:
+- **Netlify** — [Available software at build time](https://docs.netlify.com/configure-builds/available-software-at-build-time/)
+- **Cloudflare Pages** — [Build image / language support](https://developers.cloudflare.com/pages/configuration/build-image/)
+- **Render** — [Environment](https://render.com/docs/environment) and [native runtimes](https://render.com/docs/native-runtimes)
 
-- Netlify: Python 3.X (https://docs.netlify.com/configure-builds/available-software-at-build-time/)
-- Cloudflare Pages: Python 3.X (https://developers.cloudflare.com/pages/configuration/build-image/)
+#### **• Node / npm not found or “Vite requires Node.js …”**
+
+Install [Node.js](https://nodejs.org/) **22 LTS** (or **20.19+**). On hosts that ignore `.nvmrc`, set **`NODE_VERSION=22`** (or equivalent) in the service environment. You still only run `python3 kaktos.py` or `python3 kaktos.py build`; the first run installs `frontend/node_modules` when needed.
+
+#### **• LiveReload did not refresh the browser**
+
+Keep the tab open so the LiveReload WebSocket stays connected (the static `build/` output still updates on disk even if the browser skips a reload). The bundled livereload client also **ignores extra reload signals** if they arrive within a few seconds of the last one—if you save many files in quick succession, do one manual refresh once the terminal shows `building done`.
 
 #### **• Template changed, but not reloaded**
 
@@ -210,9 +268,7 @@ Check your terminal to see the error message, the HTML file and the line number 
 
 ## 🖼️ Images
 
-All images for demo i got from:
-
-https://unsplash.com/
+Place images under **`frontend/public/images/`** (see sample layout: `images/logo.png`, `images/gallery/…`, `images/blog/…`). Demo stock photos were sourced from [Unsplash](https://unsplash.com/).
 
 ## 📜 License
 

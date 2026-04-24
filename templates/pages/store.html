@@ -9,23 +9,18 @@
 
 {{ page_container_start() }}
 
-<main>
-    <section class="mt-5">
-        <div class="px-4 text-center">
-            <figure>
-                <img width="180" src="/assets/images/logo.png" alt="Logo">
-            </figure>
-        </div>
+<section class="px-4 py-10">
+    <div class="mb-10 text-center">
+        <figure class="mb-6 flex justify-center">
+            <img class="h-auto w-44" src="{{ kaktos.frontend.url('images/logo.png') }}" alt="Logo" width="180" height="180">
+        </figure>
+        <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">Store</h1>
+    </div>
 
-        <h1 class="display-5 text-center my-5">
-            Store
-        </h1>
-
-        <div class="row">
-            {% include "shared/product/list.html" %}
-        </div>
-    </section>
-</main>
+    <div class="grid grid-cols-1 gap-8">
+        {% include "shared/product/list.html" %}
+    </div>
+</section>
 
 {{ page_container_end() }}
 
