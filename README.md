@@ -31,7 +31,7 @@ Create beautiful static websites, e-commerce stores, blogs, landing pages, and s
 - **No Hosting Fees** – Fully serverless deployment means **no hosting costs** 🆓
 - **SEO Optimized** – Generate clean, SEO-friendly pages 🕵️‍♂️
 - **Customizable Templates** – Based on the powerful Jinja2 templating engine 🎨
-- **Integrated frontend** – All CSS, JavaScript, and images live under `frontend/`, the Python build runs Vite and npm for you, and the site UI is styled with **Tailwind CSS** only (no Bootstrap or other CSS frameworks) ⚙️
+- **Integrated frontend** – All CSS, JavaScript, and images live under `frontend/`, the Python build runs Vite and npm for you, and the site UI is styled with **Tailwind CSS** ⚙️
 
 ## 🤔 Why Kaktos?
 
