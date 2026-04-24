@@ -1,27 +1,29 @@
-<div class="col mb-5">
-    <div class="card h-100 card-product">
+<div class="relative mb-8 w-full max-w-xs shrink-0 sm:w-72">
+    <div
+        class="flex h-full w-full flex-col overflow-hidden rounded-lg border border-slate-200 bg-white transition-colors hover:border-slate-300">
         {% if product_item_data.price_from %}
-        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+        <div class="absolute right-2 top-2 z-10 rounded bg-slate-900 px-2 py-0.5 text-xs font-semibold text-white">
             Sale
         </div>
         {% endif %}
 
-        <a href="{{ url_for('product', token=product_item_data.token) }}">
-            <img class="card-img-top" src="{{ product_item_data.image }}" alt="{{ product_item_data.name }}">
+        <a class="block overflow-hidden" href="{{ url_for('product', token=product_item_data.token) }}">
+            <img class="h-48 w-full object-cover" src="{{ kaktos.frontend.url(product_item_data.image) }}"
+                alt="{{ product_item_data.name }}">
         </a>
 
-        <div class="card-body py-4 px-2">
+        <div class="flex flex-1 flex-col px-3 py-4">
             <div class="text-center">
-                <h5 class="fw-bolder">
+                <h3 class="text-lg font-bold text-slate-900">
                     {{ product_item_data.name }}
-                </h5>
+                </h3>
 
                 {% if product_item_data.price_from %}
-                    <span class="text-muted text-decoration-line-through">
+                    <span class="text-sm text-slate-400 line-through">
                         {{ product_item_data.price_from }}
                     </span>
 
-                    <br />
+                    <br>
 
                     {% if product_item_data.installments > 0 %}
                         {{ product_item_data.installments }}x of
@@ -38,15 +40,15 @@
             </div>
         </div>
 
-        <div class="card-footer p-2 pb-4 pt-0 border-top-0 bg-transparent">
-            <div class="text-center">
-                <a class="btn btn-outline-dark mt-auto" href="{{ url_for('product', token=product_item_data.token) }}">
-                    Details
-                </a>
-                <a class="btn btn-outline-dark mt-auto" href="{{ product_item_data.buy }}">
-                    Buy
-                </a>
-            </div>
+        <div class="flex flex-wrap justify-center gap-2 border-t border-slate-100 px-3 pb-4 pt-2">
+            <a class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                href="{{ url_for('product', token=product_item_data.token) }}">
+                Details
+            </a>
+            <a class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+                href="{{ product_item_data.buy }}">
+                Buy
+            </a>
         </div>
     </div>
 </div>

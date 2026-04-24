@@ -6,6 +6,7 @@ from modules import blog, product, product_category, time
 root_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 build_dir = os.path.join(root_dir, "build")
 template_dir = os.path.join(root_dir, "templates")
+gallery_dir = os.path.join(root_dir, "frontend", "public", "images", "gallery")
 
 title = "Kaktos"
 rtl = False
@@ -19,7 +20,7 @@ page_language = "en"
 page_og_locale = "en_US"
 page_og_type = "website"
 page_og_site_name = title
-page_og_image = f"{base_url}/assets/images/logo-og.png"
+page_og_image = f"{base_url}/static/images/logo-og.png"
 page_og_image_width = "1024"
 page_og_image_height = "1024"
 

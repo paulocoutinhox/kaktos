@@ -1,7 +1,7 @@
-<h3 class="fw-bolder mt-5">Related products</h3>
+<h3 class="mt-12 text-2xl font-bold text-slate-900">Related products</h3>
 
-<div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+<div class="container mx-auto mt-8 max-w-6xl px-4">
+    <div class="mx-auto flex max-w-6xl flex-wrap justify-center gap-6">
         {% for product_token in product_data.related %}
             {% set product_item_data = product.by_token(product_token) %}
             {% include 'shared/product/list-item.html' %}

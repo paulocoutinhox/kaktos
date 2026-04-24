@@ -13,52 +13,48 @@
 {% endif %}
 
 {% if blog_post_data.image %}
-    {% set page_og_image = kaktos.config.base_url + blog_post_data.image %}
+    {% set page_og_image = kaktos.frontend.abs_url(blog_post_data.image) %}
 {% endif %}
 
 {% block content %}
 
-<main>
-    <section class="mt-5">
-        <div class="px-4 text-center">
-            <figure>
-                <img width="180" src="/assets/images/logo.png" alt="Logo">
+<main class="w-full flex-1">
+    <section class="px-4 py-10">
+        <div class="mb-10 text-center">
+            <figure class="mb-6 flex justify-center">
+                <img class="h-auto w-44" src="{{ kaktos.frontend.url('images/logo.png') }}" alt="Logo" width="180" height="180">
             </figure>
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                {{ blog_post_data.title }}
+            </h1>
         </div>
 
-        <h1 class="display-5 text-center my-5">
-            {{ blog_post_data.title }}
-        </h1>
+        <div class="mx-auto mt-8 max-w-3xl">
+            <div class="mb-6 text-sm text-slate-500">
+                Published on: {{ time.format_datetime(blog_post_data.published_at, '%Y-%m-%d %H:%M:%S') }}
+            </div>
 
-        <div class="container mt-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="text-muted mb-4">
-                        <small>
-                            Published on: {{ time.format_datetime(blog_post_data.published_at, '%Y-%m-%d %H:%M:%S') }}
-                        </small>
-                    </div>
+            <figure class="mb-8 overflow-hidden rounded-xl border border-slate-200">
+                <img class="h-auto w-full object-cover" src="{{ kaktos.frontend.url(blog_post_data.image) }}" alt="Post image">
+            </figure>
 
-                    <figure class="mb-4">
-                        <img class="img-fluid rounded" src="{{ blog_post_data.image }}" alt="Post image">
-                    </figure>
+            <div class="mb-6 flex flex-wrap gap-2">
+                {% for post_tag in blog_post_data.tags %}
+                    <span class="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                        {{ post_tag }}
+                    </span>
+                {% endfor %}
+            </div>
 
-                    {% for post_tag in blog_post_data.tags %}
-                        <span class="badge text-bg-primary">
-                            {{ post_tag }}
-                        </span>
-                    {% endfor %}
+            <div class="max-w-none space-y-4 text-lg leading-relaxed text-slate-700 [&_a]:text-primary [&_a]:underline [&_img]:max-w-full [&_img]:rounded-lg">
+                {{ blog_post_data.content | safe }}
+            </div>
 
-                    <p class="lead">
-                        {{ blog_post_data.content | safe }}
-                    </p>
-
-                    <div class="mt-5 text-center">
-                        <a href="{{ url_for('blog') }}" class="btn btn-primary">
-                            Back to blog
-                        </a>
-                    </div>
-                </div>
+            <div class="mt-10 text-center">
+                <a href="{{ url_for('blog') }}"
+                    class="inline-flex items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2">
+                    Back to blog
+                </a>
             </div>
         </div>
     </section>

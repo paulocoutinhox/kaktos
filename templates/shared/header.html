@@ -1,42 +1,66 @@
 <!-- header -->
-<header>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="/assets/images/logo-mini.png" alt="Logo">
-            </a>
+<header class="border-b border-slate-200 bg-white">
+    <nav class="container mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-4 px-4 py-3">
+        <a class="flex items-center gap-2 rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            href="{{ url_for('index') }}">
+            <img src="{{ kaktos.frontend.url('images/logo-mini.png') }}" alt="Logo" class="h-9 w-auto" width="120" height="36">
+        </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <details class="group relative md:hidden">
+            <summary
+                class="flex cursor-pointer list-none items-center gap-2 rounded-md border border-slate-200 px-3 py-2 text-sm font-medium text-slate-700 marker:hidden hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+                <span class="sr-only">Open menu</span>
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                    aria-hidden="true">
+                    <path stroke-linecap="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </summary>
+            <ul
+                class="absolute right-0 z-50 mt-2 min-w-[12rem] rounded-lg border border-slate-200 bg-white py-2 ring-1 ring-slate-900/5">
+                <li>
+                    <a class="block px-4 py-2 text-sm {% if kaktos.path == 'index' %}bg-slate-100 font-semibold text-primary{% else %}text-slate-700 hover:bg-slate-50{% endif %}"
+                        href="{{ url_for('index') }}">Home</a>
+                </li>
+                <li>
+                    <a class="block px-4 py-2 text-sm {% if kaktos.path == 'store' %}bg-slate-100 font-semibold text-primary{% else %}text-slate-700 hover:bg-slate-50{% endif %}"
+                        href="{{ url_for('page', path='store') }}">Store</a>
+                </li>
+                <li>
+                    <a class="block px-4 py-2 text-sm {% if kaktos.path == 'blog' %}bg-slate-100 font-semibold text-primary{% else %}text-slate-700 hover:bg-slate-50{% endif %}"
+                        href="{{ url_for('blog') }}">Blog</a>
+                </li>
+                <li>
+                    <a class="block px-4 py-2 text-sm {% if kaktos.path == 'gallery' %}bg-slate-100 font-semibold text-primary{% else %}text-slate-700 hover:bg-slate-50{% endif %}"
+                        href="{{ url_for('page', path='gallery') }}">Gallery</a>
+                </li>
+                <li>
+                    <a class="block px-4 py-2 text-sm {% if kaktos.path == 'about' %}bg-slate-100 font-semibold text-primary{% else %}text-slate-700 hover:bg-slate-50{% endif %}"
+                        href="{{ url_for('page', path='about') }}">About</a>
+                </li>
+            </ul>
+        </details>
 
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-
-                <ul class="navbar-nav ms-auto mb-2 mb-md-0">
-                    <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'index' %}active{% endif %}" {% if kaktos.path=='index' %} aria-current="page" {% endif %} href="{{ url_for('index') }}">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'store' %}active{% endif %}" {% if kaktos.path=='store' %} aria-current="page" {% endif %} href="{{ url_for('page', path='store') }}">Store</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'blog' %}active{% endif %}" {% if kaktos.path=='blog' %} aria-current="page" {% endif %} href="{{ url_for('page', path='blog') }}">Blog</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'gallery' %}active{% endif %}" {% if kaktos.path=='gallery' %} aria-current="page" {% endif %} href="{{ url_for('page', path='gallery') }}">Gallery</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link {% if kaktos.path == 'about' %}active{% endif %}" {% if kaktos.path=='about' %} aria-current="page" {% endif %} href="{{ url_for('page', path='about') }}">About</a>
-                    </li>
-                </ul>
-
-            </div>
-        </div>
+        <ul class="hidden items-center gap-1 md:flex">
+            <li>
+                <a class="rounded-md px-3 py-2 text-sm font-medium {% if kaktos.path == 'index' %}bg-slate-100 text-primary{% else %}text-slate-700 hover:bg-slate-100{% endif %}"
+                    href="{{ url_for('index') }}">Home</a>
+            </li>
+            <li>
+                <a class="rounded-md px-3 py-2 text-sm font-medium {% if kaktos.path == 'store' %}bg-slate-100 text-primary{% else %}text-slate-700 hover:bg-slate-100{% endif %}"
+                    href="{{ url_for('page', path='store') }}">Store</a>
+            </li>
+            <li>
+                <a class="rounded-md px-3 py-2 text-sm font-medium {% if kaktos.path == 'blog' %}bg-slate-100 text-primary{% else %}text-slate-700 hover:bg-slate-100{% endif %}"
+                    href="{{ url_for('blog') }}">Blog</a>
+            </li>
+            <li>
+                <a class="rounded-md px-3 py-2 text-sm font-medium {% if kaktos.path == 'gallery' %}bg-slate-100 text-primary{% else %}text-slate-700 hover:bg-slate-100{% endif %}"
+                    href="{{ url_for('page', path='gallery') }}">Gallery</a>
+            </li>
+            <li>
+                <a class="rounded-md px-3 py-2 text-sm font-medium {% if kaktos.path == 'about' %}bg-slate-100 text-primary{% else %}text-slate-700 hover:bg-slate-100{% endif %}"
+                    href="{{ url_for('page', path='about') }}">About</a>
+            </li>
+        </ul>
     </nav>
 </header>

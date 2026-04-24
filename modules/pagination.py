@@ -53,7 +53,16 @@ def paginate(path, items, per_page):
 # -----------------------------------------------------------------------------
 def empty(path):
     return {
-        "pages": [],
+        "path": path,
         "total_items": 0,
         "total_pages": 0,
+        "current_page": 1,
+        "items": [],
+        "page_range": [],
+        "has_previous": False,
+        "has_next": False,
+        "previous_page": None,
+        "next_page": None,
+        "first_page": 1,
+        "last_page": 1,
     }

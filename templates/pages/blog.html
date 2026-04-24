@@ -2,31 +2,30 @@
 
 {% block content %}
 
-<main>
-    <section class="mt-5">
-        <div class="px-4 text-center">
-            <figure>
-                <img width="180" src="/assets/images/logo.png" alt="Logo">
+<main class="w-full flex-1">
+    <section class="px-4 py-10">
+        <div class="mb-10 text-center">
+            <figure class="mb-6 flex justify-center">
+                <img class="h-auto w-44" src="{{ kaktos.frontend.url('images/logo.png') }}" alt="Logo" width="180" height="180">
             </figure>
+            <h1 class="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl">
+                {% if pagination_data.total_items > 0 %}
+                    Blog Page {{ page_num }}
+                {% else %}
+                    Blog
+                {% endif %}
+            </h1>
         </div>
-
-        <h1 class="display-5 text-center my-5">
-            {% if pagination_data.total_items > 0 %}
-                Blog Page {{ page_num }}
-            {% else %}
-                Blog
-            {% endif %}
-        </h1>
     </section>
-    <section class="mt-5 section-posts-list">
-        <div class="container px-4 px-lg-5 my-5">
+    <section class="section-posts-list px-4 pb-16">
+        <div class="container mx-auto max-w-6xl px-4">
             {% if pagination_data.total_items > 0 %}
-                <div class="row">
+                <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 lg:gap-10">
                     {% include "shared/blog/list.html" %}
                 </div>
             {% else %}
-                <div class="text-center">
-                    <strong>No posts</strong>
+                <div class="py-12 text-center text-slate-600">
+                    <p class="font-semibold text-slate-700">No posts</p>
                 </div>
             {% endif %}
 

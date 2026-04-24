@@ -25,7 +25,7 @@
   published_at: "2024-07-15 10:23:45"
   tags: ["python", "lists", "tutorial"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Introduction to Python Dictionaries"
   token: post-2
@@ -57,7 +57,7 @@
   published_at: "2024-08-11 14:50:12"
   tags: ["python", "dictionaries", "data"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Working with Python Functions"
   token: post-3
@@ -79,7 +79,7 @@
   published_at: "2024-06-22 09:34:56"
   tags: ["python", "functions", "code"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "How to Use Python Lambda Functions"
   token: post-4
@@ -95,7 +95,7 @@
   published_at: "2024-05-29 17:42:38"
   tags: ["python", "lambda", "functions"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Understanding Python's GIL"
   token: post-5
@@ -106,7 +106,7 @@
   published_at: "2024-04-20 12:15:23"
   tags: ["python", "gil", "threads"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Working with Python's Asyncio"
   token: post-6
@@ -129,7 +129,7 @@
   published_at: "2024-08-03 08:45:11"
   tags: ["python", "asyncio", "concurrency"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Handling Files in Python"
   token: post-7
@@ -145,7 +145,7 @@
   published_at: "2024-03-10 15:00:49"
   tags: ["python", "files", "io"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Error Handling in Python"
   token: post-8
@@ -163,7 +163,7 @@
   published_at: "2024-07-19 13:28:57"
   tags: ["python", "errors", "exceptions"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Python Class and Object Basics"
   token: post-9
@@ -184,7 +184,7 @@
   published_at: "2024-05-09 10:55:43"
   tags: ["python", "oop", "classes"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Exploring Python Decorators"
   token: post-10
@@ -204,7 +204,7 @@
   published_at: "2024-02-25 09:13:29"
   tags: ["python", "decorators", "functions"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Python List Comprehensions"
   token: post-11
@@ -219,7 +219,7 @@
   published_at: "2024-06-14 16:21:08"
   tags: ["python", "comprehensions", "lists"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Introduction to Python Generators"
   token: post-12
@@ -236,7 +236,7 @@
   published_at: "2024-01-08 07:22:31"
   tags: ["python", "generators", "iterators"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Using Python's Datetime Module"
   token: post-13
@@ -252,7 +252,7 @@
   published_at: "2024-04-01 19:32:10"
   tags: ["python", "datetime", "time"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Mastering Python String Formatting"
   token: post-14
@@ -268,7 +268,7 @@
   published_at: "2024-05-05 10:14:27"
   tags: ["python", "strings", "formatting"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Introduction to Python's Virtual Environments"
   token: post-15
@@ -283,7 +283,7 @@
   published_at: "2024-03-27 11:12:34"
   tags: ["python", "virtualenv", "dependencies"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Python's Data Classes Explained"
   token: post-16
@@ -303,7 +303,7 @@
   published_at: "2024-06-04 18:47:19"
   tags: ["python", "dataclasses", "oop"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Understanding Python's Logging Module"
   token: post-17
@@ -321,7 +321,7 @@
   published_at: "2024-09-01 14:00:52"
   tags: ["python", "logging", "debugging"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Handling JSON in Python"
   token: post-18
@@ -339,7 +339,7 @@
   published_at: "2024-04-18 09:45:11"
   tags: ["python", "json", "api"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Introduction to Python's Collections Module"
   token: post-19
@@ -356,7 +356,7 @@
   published_at: "2024-05-21 08:30:33"
   tags: ["python", "collections", "data"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
 
 - title: "Building REST APIs with Python"
   token: post-20
@@ -377,4 +377,4 @@
   published_at: "2024-08-18 13:55:22"
   tags: ["python", "rest", "apis"]
   author: "paulo-coutinho"
-  image: /assets/images/blog/post-test.jpg
+  image: images/blog/post-test.jpg
