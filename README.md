@@ -69,7 +69,7 @@ Whether you need to build a blog, an e-commerce store, a landing page, or any ot
 ## Requirements
 
 - **Python** 3.9+
-- **Node.js** 18+ and **npm** on your `PATH` so the Python build can invoke them (you never run `npm` yourself for normal development or production builds)
+- **Node.js** **20.19+** or **22.12+** (LTS **22** recommended) and **npm** on your `PATH` so the Python build can invoke **Vite 8** (you never run `npm` yourself for normal development or production builds). The repo pins **22** via **`.nvmrc`**, **`netlify.toml`**, **`render.yaml`**, and **`amplify.yml`** where the host reads them.
 
 ## 🚀 How to Get Started
 
@@ -248,9 +248,9 @@ Hosting platforms ship their own Python and Node images. See their current defau
 - **Cloudflare Pages** — [Build image / language support](https://developers.cloudflare.com/pages/configuration/build-image/)
 - **Render** — [Environment](https://render.com/docs/environment) and [native runtimes](https://render.com/docs/native-runtimes)
 
-#### **• Node / npm not found**
+#### **• Node / npm not found or “Vite requires Node.js …”**
 
-If the build fails with **npm was not found in PATH** or similar, install [Node.js](https://nodejs.org/) (LTS). You still only run `python3 kaktos.py` or `python3 kaktos.py build`, and the first run installs `frontend/node_modules` when needed.
+Install [Node.js](https://nodejs.org/) **22 LTS** (or **20.19+**). On hosts that ignore `.nvmrc`, set **`NODE_VERSION=22`** (or equivalent) in the service environment. You still only run `python3 kaktos.py` or `python3 kaktos.py build`; the first run installs `frontend/node_modules` when needed.
 
 #### **• LiveReload did not refresh the browser**
 

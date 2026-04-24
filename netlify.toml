@@ -1,3 +1,7 @@
 [build]
   command = "python3 kaktos.py build"
   publish = "build"
+
+# Vite 8+: Node 20.19+ or 22.12+ (see also repo root `.nvmrc`, `render.yaml`, `amplify.yml`).
+[build.environment]
+  NODE_VERSION = "22"
