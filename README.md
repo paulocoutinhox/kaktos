@@ -10,7 +10,7 @@
 
 <br>
 
-# κάκτος - Kaktos
+# Kaktos — *κάκτος* (Greek for “cactus”)
 
 [![Kaktos](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml/badge.svg)](https://github.com/paulocoutinhox/kaktos/actions/workflows/build.yml)
 
