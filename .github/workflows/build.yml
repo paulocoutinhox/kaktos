@@ -3,6 +3,8 @@ name: Build
 on:
   push:
     paths-ignore:
+      - 'README.md'
+      - '**/README.md'
       - '**/*.md'
       - '*.md'
       - 'docs/**'
