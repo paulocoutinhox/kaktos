@@ -37,6 +37,13 @@ version_css_file = time.current_time()
 whatsapp_number = ""
 whatsapp_message = "Hello. I would like to ask a question."
 
+# google analytics
+google_analytics_id = ""
+
+# cookie consent
+cookie_consent_enabled = True
+cookie_consent_policy_url = ""
+
 # product data
 product_data = product.load_data()
 
