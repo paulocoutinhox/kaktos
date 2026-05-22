@@ -1,0 +1,68 @@
+{% if kaktos.config.cookie_consent_enabled %}
+    <!-- cookie consent banner -->
+    <div id="cookie-consent" class="cookie-consent" data-state="hidden" aria-hidden="true">
+        <div class="cookie-consent-banner" role="dialog" aria-modal="false" aria-labelledby="cookie-consent-title" aria-describedby="cookie-consent-description">
+            <div class="cookie-consent-banner-body">
+                <h2 id="cookie-consent-title" class="cookie-consent-title">We value your privacy</h2>
+                <p id="cookie-consent-description" class="cookie-consent-description">
+                    We use cookies to keep the site working and, with your permission, to measure traffic with Google Analytics so we can improve your experience. You can change your choice at any time.
+                    {% if kaktos.config.cookie_consent_policy_url %}
+                        <a class="cookie-consent-link" href="{{ kaktos.config.cookie_consent_policy_url }}">Learn more</a>.
+                    {% endif %}
+                </p>
+            </div>
+            <div class="cookie-consent-banner-actions">
+                <button type="button" class="cookie-consent-button-ghost" data-cookie-consent-action="preferences">Preferences</button>
+                <button type="button" class="cookie-consent-button-secondary" data-cookie-consent-action="reject">Reject all</button>
+                <button type="button" class="cookie-consent-button-primary" data-cookie-consent-action="accept">Accept all</button>
+            </div>
+        </div>
+
+        <div class="cookie-consent-modal" role="dialog" aria-modal="true" aria-labelledby="cookie-consent-modal-title" aria-hidden="true">
+            <div class="cookie-consent-modal-backdrop" data-cookie-consent-action="close"></div>
+            <div class="cookie-consent-modal-card">
+                <div class="cookie-consent-modal-header">
+                    <h2 id="cookie-consent-modal-title" class="cookie-consent-modal-title">Cookie preferences</h2>
+                    <button type="button" class="cookie-consent-modal-close" data-cookie-consent-action="close" aria-label="Close preferences">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+                        </svg>
+                    </button>
+                </div>
+
+                <p class="cookie-consent-modal-intro">
+                    Choose which categories of cookies you allow. Strictly necessary cookies are always active because the site cannot function without them.
+                </p>
+
+                <ul class="cookie-consent-categories">
+                    <li class="cookie-consent-category">
+                        <div class="cookie-consent-category-text">
+                            <span class="cookie-consent-category-title">Strictly necessary</span>
+                            <span class="cookie-consent-category-description">Required for core features such as navigation and security. Cannot be disabled.</span>
+                        </div>
+                        <label class="cookie-consent-toggle" aria-label="Strictly necessary cookies are always on">
+                            <input type="checkbox" checked disabled data-cookie-consent-category="necessary">
+                            <span class="cookie-consent-toggle-track"></span>
+                        </label>
+                    </li>
+                    <li class="cookie-consent-category">
+                        <div class="cookie-consent-category-text">
+                            <span class="cookie-consent-category-title">Analytics</span>
+                            <span class="cookie-consent-category-description">Lets us measure visits and usage with Google Analytics so we can improve the site.</span>
+                        </div>
+                        <label class="cookie-consent-toggle">
+                            <input type="checkbox" data-cookie-consent-category="analytics">
+                            <span class="cookie-consent-toggle-track"></span>
+                        </label>
+                    </li>
+                </ul>
+
+                <div class="cookie-consent-modal-actions">
+                    <button type="button" class="cookie-consent-button-secondary" data-cookie-consent-action="reject">Reject all</button>
+                    <button type="button" class="cookie-consent-button-ghost" data-cookie-consent-action="save">Save preferences</button>
+                    <button type="button" class="cookie-consent-button-primary" data-cookie-consent-action="accept">Accept all</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

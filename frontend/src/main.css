@@ -33,4 +33,149 @@
     .whatsapp-button-icon {
         @apply h-7 w-7;
     }
+
+    .cookie-consent {
+        @apply pointer-events-none fixed inset-0 z-[1100];
+    }
+
+    .cookie-consent[data-state="hidden"] {
+        @apply hidden;
+    }
+
+    .cookie-consent-banner {
+        @apply pointer-events-auto fixed inset-x-4 bottom-4 mx-auto flex max-w-3xl flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-2xl ring-1 ring-slate-900/5 sm:flex-row sm:items-center sm:gap-6 sm:p-6;
+    }
+
+    .cookie-consent[data-state="preferences"] .cookie-consent-banner {
+        @apply hidden;
+    }
+
+    .cookie-consent-banner-body {
+        @apply flex-1;
+    }
+
+    .cookie-consent-title {
+        @apply text-base font-semibold text-slate-900;
+    }
+
+    .cookie-consent-description {
+        @apply mt-1 text-sm leading-relaxed text-slate-600;
+    }
+
+    .cookie-consent-link {
+        @apply font-medium text-primary underline-offset-2 hover:text-primary-hover hover:underline;
+    }
+
+    .cookie-consent-banner-actions {
+        @apply flex flex-wrap items-center gap-2 sm:flex-nowrap sm:justify-end;
+    }
+
+    .cookie-consent-button-primary {
+        @apply inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-white transition hover:bg-primary-hover focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    }
+
+    .cookie-consent-button-secondary {
+        @apply inline-flex items-center justify-center rounded-md border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    }
+
+    .cookie-consent-button-ghost {
+        @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-slate-600 transition hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    }
+
+    .cookie-consent-modal {
+        @apply pointer-events-none fixed inset-0 flex items-center justify-center p-4 opacity-0 transition-opacity;
+    }
+
+    .cookie-consent[data-state="preferences"] .cookie-consent-modal {
+        @apply pointer-events-auto opacity-100;
+    }
+
+    .cookie-consent-modal-backdrop {
+        @apply absolute inset-0 bg-slate-900/50;
+    }
+
+    .cookie-consent-modal-card {
+        @apply relative z-10 flex max-h-[90vh] w-full max-w-lg flex-col gap-4 overflow-y-auto rounded-2xl bg-white p-6 shadow-2xl ring-1 ring-slate-900/5;
+    }
+
+    .cookie-consent-modal-header {
+        @apply flex items-start justify-between gap-4;
+    }
+
+    .cookie-consent-modal-title {
+        @apply text-lg font-semibold text-slate-900;
+    }
+
+    .cookie-consent-modal-close {
+        @apply inline-flex h-8 w-8 items-center justify-center rounded-md text-slate-500 transition hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    }
+
+    .cookie-consent-modal-close svg {
+        @apply h-5 w-5;
+    }
+
+    .cookie-consent-modal-intro {
+        @apply text-sm leading-relaxed text-slate-600;
+    }
+
+    .cookie-consent-categories {
+        @apply flex flex-col divide-y divide-slate-100 rounded-xl border border-slate-200;
+    }
+
+    .cookie-consent-category {
+        @apply flex items-start justify-between gap-4 p-4;
+    }
+
+    .cookie-consent-category-text {
+        @apply flex flex-col gap-1;
+    }
+
+    .cookie-consent-category-title {
+        @apply text-sm font-semibold text-slate-900;
+    }
+
+    .cookie-consent-category-description {
+        @apply text-xs leading-relaxed text-slate-600;
+    }
+
+    .cookie-consent-toggle {
+        @apply relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center;
+    }
+
+    .cookie-consent-toggle input {
+        @apply absolute h-full w-full cursor-pointer opacity-0;
+    }
+
+    .cookie-consent-toggle input:disabled {
+        @apply cursor-not-allowed;
+    }
+
+    .cookie-consent-toggle-track {
+        @apply pointer-events-none absolute inset-0 rounded-full bg-slate-300 transition-colors;
+    }
+
+    .cookie-consent-toggle input:checked ~ .cookie-consent-toggle-track {
+        @apply bg-primary;
+    }
+
+    .cookie-consent-toggle input:disabled ~ .cookie-consent-toggle-track {
+        @apply opacity-60;
+    }
+
+    .cookie-consent-toggle-track::after {
+        content: "";
+        @apply absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform;
+    }
+
+    .cookie-consent-toggle input:checked ~ .cookie-consent-toggle-track::after {
+        @apply translate-x-5;
+    }
+
+    .cookie-consent-modal-actions {
+        @apply flex flex-wrap items-center justify-end gap-2;
+    }
+
+    .cookie-consent-footer-link {
+        @apply text-sm font-medium text-slate-600 underline-offset-2 hover:text-primary hover:underline focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2;
+    }
 }

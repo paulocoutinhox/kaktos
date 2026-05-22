@@ -1,9 +1,22 @@
-<!-- google analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G78ENDV04Q"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
+{% if kaktos.config.google_analytics_id %}
+    <!-- google analytics with consent mode v2 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ kaktos.config.google_analytics_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-    gtag('config', 'G-G78ENDV04Q');
-</script>
+        // deny all storage by default until the user makes an explicit choice
+        gtag('consent', 'default', {
+            ad_storage: 'denied',
+            ad_user_data: 'denied',
+            ad_personalization: 'denied',
+            analytics_storage: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+            wait_for_update: 500,
+        });
+
+        gtag('config', '{{ kaktos.config.google_analytics_id }}', { anonymize_ip: true });
+    </script>
+{% endif %}

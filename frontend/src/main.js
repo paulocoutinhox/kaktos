@@ -3,6 +3,8 @@ import "glightbox/dist/css/glightbox.min.css";
 
 import GLightbox from "glightbox";
 
+import { initCookieConsent } from "./cookie-consent.js";
+
 const logStyle = "background: #222; color: #bada55";
 console.log("%c Kaktos Generator!", logStyle);
 
@@ -26,3 +28,5 @@ if (document.querySelector(".glightbox")) {
         zoomable: true,
     });
 }
+
+initCookieConsent();
