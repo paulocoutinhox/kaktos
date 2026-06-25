@@ -36,7 +36,7 @@ def get_kaktos(path):
     kc = KaktosConfig()
 
     kc.is_debug = is_debug()
-    kc.config = reload(config)
+    kc.config = config
     kc.frontend = frontend.api
     kc.path = path
 
@@ -88,6 +88,10 @@ def setup():
 def build_pages():
     print("building site...")
 
+    # refresh content data on dev rebuilds so file edits are picked up
+    if is_debug():
+        reload(config)
+
     frontend.run_frontend_build()
     freezer_app.freeze()
     frontend.publish_static_to_build()
@@ -126,6 +130,7 @@ def start_live_reload():
         server.watch(lockfile, build_pages)
 
     server.watch(os.path.join(config.root_dir, "modules", "config.py"), build_pages)
+    server.watch(os.path.join(config.root_dir, "extras"), build_pages)
 
     server.serve(root="build", port=5555)
 
