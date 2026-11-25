@@ -1,0 +1,12 @@
+.git
+.env
+**/node_modules
+**/__pycache__
+*.pyc
+frontend/dist
+build
+venv
+.venv
+temp
+KANBAN.md
+.DS_Store

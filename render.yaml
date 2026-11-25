@@ -6,6 +6,6 @@ services:
   staticPublishPath: build/
   envVars:
   - key: NODE_VERSION
-    value: "22"
+    value: "24"
   - key: PYTHON_VERSION
-    value: 3.13.4
+    value: 3.14.8

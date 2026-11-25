@@ -4,15 +4,15 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.19.0"
+    "node": "^20.19.0 || >=22.12.0"
   },
   "scripts": {
     "build": "vite build"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.2.4",
-    "tailwindcss": "^4.2.4",
-    "vite": "^8.0.10"
+    "@tailwindcss/vite": "^4.3.5",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8"
   },
   "dependencies": {
     "glightbox": "^3.3.1"
