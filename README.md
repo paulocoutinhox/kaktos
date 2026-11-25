@@ -68,8 +68,8 @@ Whether you need to build a blog, an e-commerce store, a landing page, or any ot
 
 ## Requirements
 
-- **Python** 3.9+
-- **Node.js** **20.19+** or **22.12+** (LTS **22** recommended) and **npm** on your `PATH` so the Python build can invoke **Vite 8** (you never run `npm` yourself for normal development or production builds). The repo pins **22** via **`.nvmrc`**, **`netlify.toml`**, **`render.yaml`**, and **`amplify.yml`** where the host reads them.
+- **Python** 3.10+
+- **Node.js** **20.19+** or **22.12+** (LTS **24** recommended) and **npm** on your `PATH` so the Python build can invoke **Vite 8** (you never run `npm` yourself for normal development or production builds). The repo pins **24** via **`.nvmrc`**, **`netlify.toml`**, **`render.yaml`**, and **`amplify.yml`** where the host reads them.
 
 ## 🚀 How to Get Started
 
@@ -250,7 +250,7 @@ Hosting platforms ship their own Python and Node images. See their current defau
 
 #### **• Node / npm not found or “Vite requires Node.js …”**
 
-Install [Node.js](https://nodejs.org/) **22 LTS** (or **20.19+**). On hosts that ignore `.nvmrc`, set **`NODE_VERSION=22`** (or equivalent) in the service environment. You still only run `python3 kaktos.py` or `python3 kaktos.py build`; the first run installs `frontend/node_modules` when needed.
+Install [Node.js](https://nodejs.org/) **24 LTS** (or **20.19+** / **22.12+**). On hosts that ignore `.nvmrc`, set **`NODE_VERSION=24`** (or equivalent) in the service environment. You still only run `python3 kaktos.py` or `python3 kaktos.py build`; the first run installs `frontend/node_modules` when needed.
 
 #### **• LiveReload did not refresh the browser**
 

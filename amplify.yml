@@ -3,15 +3,14 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 22
-        - nvm use 22
+        - nvm install 24
+        - nvm use 24
         - node -v
-        - ln -fs /usr/local/bin/pip3.9 /usr/bin/pip3
-        - ln -fs /usr/local/bin/python3.9 /usr/bin/python3
-        - python3 -m pip install -r requirements.txt --user
+        - python3.11 --version
+        - python3.11 -m pip install -r requirements.txt --user
     build:
       commands:
-        - python3 kaktos.py build
+        - python3.11 kaktos.py build
   artifacts:
     baseDirectory: build
     files:
